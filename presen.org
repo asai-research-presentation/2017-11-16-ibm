@@ -1,4 +1,3 @@
-#+title: Running a GOFAI in Deep Latent Space: Bridging the Sybsymbolic-Symbolic Boundary
 #+include: "head.org"
 #+LINK: img file:img/%s
 #+LINK: png file:img/%s.png
@@ -12,13 +11,22 @@
 #+begin_outline-text-1
 #+begin_center
 
+#+begin_xlarge
+Classical Planning in
+
+Deep Latent Space:
+
+Bridging the Subsymbolic-Symbolic Boundary
+#+end_xlarge
+
 #+begin_larger
 Masataro Asai
 
 The University of Tokyo
 #+end_larger
 
-20+ min
+Note to Basel people: this presentation is aimed at the general audience who may
+not be familiar or even haven't heard about AI planning.
 #+end_center
 
 #+begin_note
@@ -345,7 +353,7 @@ initial state
 ** Symbolic planners cannot solve an */Image-based/* 8-puzzle
 
 #+begin_center
-+ *PDDL for 3x3 Sliding Tile Puzzle* can be solved *optimally* *<< 1sec*
++ *PDDL for 8-puzzle* can be solved *optimally* *<< 1sec*
 #+end_center
 
 #+begin_container-fluid
@@ -378,6 +386,14 @@ initial state
 #+end_row-fluid
 #+end_container-fluid
 
+#+begin_alignright
++ *Impractical* in an *unknown environment* where */no human/ is available*
+    
+  #+begin_larger
+  E.g. *autonomous space exploration!*
+  #+end_larger
+#+end_alignright
+
 ** Knowledge-Acquisition Bottleneck (Cullen, 1988):
 
 #+begin_quote
@@ -393,7 +409,7 @@ domain-independent *symbolic* systems
 #+end_row-fluid
 #+begin_row-fluid
 #+begin_span6
-+ *1. Symbols Grounding:*
++ *1. Symbol Grounding:*
 
   #+begin_center
   #+begin_larger
@@ -404,7 +420,7 @@ domain-independent *symbolic* systems
   #+begin_smaller
   | Types        | Examples                     |
   |--------------+------------------------------|
-  | Objects      | *panel7*, *x_0*, *y_0* ...   |
+  | Objects      | *panel_7*, *x_0*, *y_0* ...  |
   | Predicates   | (*empty* ?x ?y)              |
   | Propositions | *p_28* = (empty x_0 y_0)     |
   | Actions      | (*slide-up* panel_7 x_0 y_1) |
@@ -444,11 +460,13 @@ domain-independent *symbolic* systems
 # The knowledge acquisition bottleneck: time for reassessment? : Cullen, J and Bryman, A Expert Syst. Vol 5 No 3 (August 1988) pp 216-225
 # #+end_note
 
-* Latent-Space Planner (*/Latplan/*) (*/Accepted/* in AAAI-2018)
+** Latent-Space Planner (*/Latplan/*)
 
 [[png:latplanlogo]]
 
-* Survey of Exisiting Action Model Acquisition Techniques          :noexport:
+(embedding the lambda calculus inside a neural architecture)
+
+* Survey of Exisiting Action Model Acquisition Techniques          
 
 #+begin_xlarge
 Survey of Exisiting Action Model Acquisition Techniques
@@ -460,7 +478,7 @@ Survey of Exisiting Action Model Acquisition Techniques
 i.e. Systems that find action models
 #+end_alignright
 
-** Limitations of Existing Systems                                 :noexport:
+** Limitations of Existing Systems                                 
 
 #+begin_xlarge
 #+begin_center
@@ -483,7 +501,7 @@ All taking the *symbolic* inputs to find the *action models*
 
 [[spng:locm]]
 
-** Framer (ICAPS17)                                                :noexport:
+** Framer (ICAPS17)                                                
 
 *Near-Symbols* : Parses natural language sentences with a *clear grammatical structure*.
 
@@ -497,22 +515,22 @@ All taking the *symbolic* inputs to find the *action models*
 + Alleviates the burden of domain experts, but *still requires human*
 + Not handling "Natural Language":
   
-  #+begin_quote
-  Pick up that parcel over there ... yeah, it has a label on it, it says Parcel1, you can see
-  it from here, the Location B. Then put it in the car, I mean the truck, the red one.
-  #+end_quote
+  #+begin_smaller
+  Pick up that .. ur .. parcel over there ... yes, it has a label on it, it says Parcel1, you can see
+  it from here, the Location B. Then put it in the car, I mean the truck, the red one whose rear bumper is a bit rusty.
+  #+end_smaller
 #+end_span6
 #+end_row-fluid
 #+end_container-fluid
 
-** Konidaris, Kaelbring (AAAI14, IJCAI15)                          :noexport:
+** Konidaris, Kaelbring (AAAI14, IJCAI15)                          
 
 "Constructing Symbolic Representations for High-Level Planning" (AAAI14)
 
 + What it does :: Converting a *Semi-MDP Model* to a *PDDL Model* by set-theoretic representation
                   
                   i.e. *Model-to-Model* conversion, not *generating a model from the scratch*
-+ Semi-MDP contains Action Labels :: =move= and =interact= (Playroom)
++ Semi-MDP contains Action Symbols :: =move= and =interact= (Playroom)
 + Sensor inputs are structured (Labels for "State Variable" are known) :: 
 
      x/y-distance, light level, whether a monkey cries
@@ -523,7 +541,7 @@ All taking the *symbolic* inputs to find the *action models*
 #      
 #      Although IJCAI15 shows "visual depiction", it is not used by the system
 
-** Learning from Video for Board Game (Bardu ICRA10; Kaiser AAAI12; Kirk 16) :noexport:
+** Learning from Video for Board Game (Bardu ICRA10; Kaiser AAAI12; Kirk 16) 
 
 *Handles Images, but with strong assumptions (almost symbol)* e.g.
 
@@ -597,18 +615,27 @@ The system is given *2 types of input*:
 [[png:overview/2]]
 #+end_right
 
-They are *random sampled* transitions
+They are *randomly sampled* transitions
 
-+ No *reward* / No *expert traces*
-+ No *access to the simulator*
++ No *state descriptions* (unlike AlphaGo)
++ No *expert traces* (unlike AlphaGo)
++ No *rewards* (unlike DRL)
++ No *access to the simulator* (unlike Atari)
+  
+  → cannot ask for more examples
 + 
   #+begin_larger
-  No */action labels, symbols/*
+  No */action symbols/* (unlike any)
 
-  　　(e.g. up, down)
-  
+  　　(e.g. ↑↓←→AB in Atari, grids in Go)
+
   → doesn't know what's happening in each transition
   #+end_larger
+
+# + So far, ALL existing AMA systems require */symbolic/near-symbolic state/action inputs/*.
+# 
+#   (Konidaris et al. 2014, 2015), ARMS (Yang et al. 07), LOCM (Cresswell et
+#   al. 09), (Argall et al. 09), (Mourao et al. 12), Framer (Lindsay et al. 17)
 
 ** Input2: Planning Input -- Initial Image & Goal Image
 
@@ -738,19 +765,19 @@ SAE is a *neural network* which provides two functions:
     #+end_alignright
 #+end_larger
 
-** Neural Network 101                                              :noexport:
+** Neural Network 101
 
 [[png:deeplearning/1]]
 
-** Neural Network 101                                              :noexport:
+** Neural Network 101
 
 [[png:deeplearning/2]]
 
-** Neural Network 101                                              :noexport:
+** Neural Network 101
 
 [[png:deeplearning/3]]
 
-** Stochastic Gradient Descent + GPU                               :noexport:
+** Stochastic Gradient Descent + GPU
 
 [[spng:gradient-descent]]
 
@@ -784,14 +811,14 @@ Plus misc techniques e.g. *Batchnorm*, *Dropout*
      　
 
      #+begin_alignright
-     (*People do it differently, too.*
+     (*People also ground symbols differently.*
      
-     cf. How many colors in a 🌈?)
+     cf. How many colors in a 🌈, 5,6 or 7?)
      #+end_alignright
 
 #+end_larger
 
-** Unsupervised Learning by AutoEncoder
+** Unsupervised Learning for NN: AutoEncoder (AE)
 
 # Auto = "self" --- Autoencoding = "encoding itself"
 
@@ -803,8 +830,8 @@ Plus misc techniques e.g. *Batchnorm*, *Dropout*
 Target Function: Identity $x=f(x)$
 + Encode $x\;$ to a *latent vector* $z$
 + Decode $z\;$ back to the input $x$
-+ $z\;$ has a smaller dimension
-+ i.e. Compression: $X \leftrightarrow Z$
+# + $z\;$ has a smaller dimension
+# + i.e. Compression: $X \leftrightarrow Z$
 + Training: Minimize $|x - f(x)|\;$
   (*reconstruction loss*)
 #+end_span7
@@ -822,9 +849,9 @@ Target Function: Identity $x=f(x)$
 #+end_larger
 #+end_alignright
 
-** Variational AutoEncoder (VAE)                                   :noexport:
+** Variational AutoEncoder (VAE, Kingma 2014)
 
-An AutoEncoder that *enforce a certain distribution* on $Z \subset \mathbb{R}^n$ over the dataset $X$
+An AutoEncoder that *enforces a certain distribution* on $Z \subset \mathbb{R}^n$ over the dataset $X$
 
 #+begin_quote
 You have $X=$ { 10k images of apples }. If you train a *Gaussian VAE* on $X$, then $Z = Encode(X) \approx N(\mu,\sigma)$ for some $\mu,\sigma \in \mathbb{R}^n$.
@@ -836,7 +863,7 @@ VAE needs a *reparametrization trick* because random distributions are non-diffe
 Reparametrization for $N(\mu,\sigma)$: $\mu + \sigma N(0,1)$
 
 #+begin_center
-\mu and \sigma are differentiable vectors, $N(0,1)$ is not.
+$\mu$ and $\sigma$ are differentiable (trainable) vectors, $N(0,1)$ is not.
 #+end_center
 #+end_quote
 
@@ -920,77 +947,31 @@ Maddison et. al., 2014
 * Verifying the feasibility of Latplan system and SAE
 
 #+begin_quote
-Q: Do the *propositions* found by the SAE (neural network) *make any logical sense?*
+#+begin_center
+*Q*: Does the SAE (neural network) produce 
 
-Q: Is it possible to *reason over such generated propositions?*
+*/sound propositions/ for /reasoning?/*
+#+end_center
 #+end_quote
 
-We need to build a *MVP system*
+# To test this, we built a *trivial, oracular* AMA system, AMA_1
 
-　
+AMA_1 : a */trivial, oracular/* AMA method *w/o generalization*.
 
-#+begin_center
-*SAE is not sufficient for propositional reasoning:* We need *AMA*
-#+end_center
++ *Encode the entire raw state transitions* in the environment
++ For each transition, perform the following conversion:
 
-　
-
-#+begin_alignright
-#+begin_larger
-So we built *AMA ver.1*, a */trivial, oracular/* AMA system
-#+end_larger
-#+end_alignright
-
-** AMA_1 : a */trivial, oracular/* AMA method
-
-It does not actually *learn/generalize* anything
-
-　
-
- [[png:overview/ama1]]
-
-** Embed Directly: One Action Per Transition
-
-#+begin_src lisp
- 0011 → 0101  
-
-　　　↓       ;; one action per transition
-(:action       action-0011-0101
-               ;; before-state is embedded directly
- :precondition (and (b0-false) (b1-false) (b2-true) (b3-true))
-               ;; effect = state diff
- :effect       (and (not (b1-false)) (b1-true)
-                    (not (b2-true))  (b2-false)))
-#+end_src
-
-Conversion from a bit to a proposition:
-
-#+begin_center
- $i$-th bit is 1 → Proposition ($b_i$ -true)
-
- $i$-th bit is 0 → Proposition ($b_i$ -false)
-#+end_center
-
-*** Example PDDL
-
-# Examples in $N=25$ (in the paper we bypassed PDDL-SAS translater)
-
-#+begin_src lisp
-(define (domain latent)
- (:requirements :strips)
- (:predicates (b0-true) (b0-false) (b1-true) ... (b24-false))
-
- (:action a10000010010110111100011111000010001011111110011111
-  :parameters () :precondition
-  (and (b0-true) (b1-false) (b2-false) ... (b24-true))
-  :effect (and (not (b5-false))  (b5-true)
-               (not (b6-true))   (b6-false)
-               (not (b13-false)) (b13-true)
-               (not (b20-false)) (b20-true)))
-
- (:action a10000010010110111100011110000001001011011110001110
-  ...
-#+end_src
+  #+begin_src lisp
+   0011 → 0101  ;; encoded bit vectors of a transition
+  
+  　　　↓       ;; one action per transition
+  (:action       action-0011-0101
+                 ;; before-state is embedded directly
+   :precondition (and (b0-false) (b1-false) (b2-true) (b3-true))
+                 ;; effect = state diff
+   :effect       (and (not (b1-false)) (b1-true)
+                      (not (b2-true))  (b2-false)))
+  #+end_src
 
 ** Step 3: Solve the Symbolic Planning Problem
 
@@ -1077,7 +1058,7 @@ Completely different puzzle problems can be solved by the same system
 
 ** Lights Out
 
-Completely different puzzle problems can be solved by the same system
+Does not assume "objects" are static (objects may disappear)
 
 [[png:results/lightsout_new4x4]]
 
@@ -1101,7 +1082,7 @@ Does not assume grid-like structures
 
 ** Handling the Noisy Input
 
-SAE implementation uses a denoising layer (Denoising AE)
+SAE implementation uses a denoising layer (Denoising AE, Vincent 08)
 # Denoising AE を使っているため入力ノイズに左右されずにプランを求められる
 
 [[png:results/noise-new]]
@@ -1113,9 +1094,10 @@ SAE implementation uses a denoising layer (Denoising AE)
  → *Improved speed, robustness, accuracy*
 #+end_alignright
 #+end_larger
+
 * Why bother the off-the-shelf planner? Shouldn't the blind search do?
 
-*Domain-independent lowerbounds works, /SURPRISINGLY!/*
+*Domain-independent lowerbounds work, /SURPRISINGLY!/*
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -1130,20 +1112,27 @@ SAE implementation uses a denoising layer (Denoising AE)
 
   Blind search even sometimes outperform sophisticated methods on man-made instances (Edelkamp 12)
 
-+ lb works → *the more difficult problems can be solved (future work)*
++ lb works → *more difficult problems can be solved (future work)*
 #+end_span6
 #+begin_span6
 #+begin_smaller
 
-| domain          | Dijkstra   | A*+PDB          | instances |
-|-----------------+------------+-----------------+-----------|
-| MNIST           | 210k(50k)  | *97k* (53k)     |        13 |
-| Mandrill        | 176k(13k)  | *112k* (57k)    |        12 |
-| Spider          | 275k(65k)  | *58k* (30k)     |        13 |
-| Hanoi (4 disk)  | 20.7(29.7) | *12.6* (22.0)   |        30 |
-| LightsOut (4x4) | 433(610.4) | *130.3* (164.4) |        16 |
-| Twisted   (4x4) | 398(683.1) | *29.3* (62.4)   |        16 |
-|-----------------+------------+-----------------+-----------|
+　
+
+Number of states expanded, mean(stdev.)
+
+|           | <c> |            |               |
+| domain    | N   | Dijkstra   | A*+PDB        |
+|-----------+-----+------------+---------------|
+| MNIST     | 13  | 210k(50k)  | *97k* (53k)   |
+| Mandrill  | 12  | 176k(13k)  | *112k* (57k)  |
+| Spider    | 13  | 275k(65k)  | *58k* (30k)   |
+| Hanoi     | 30  | 20.7(29.7) | *12.6* (22.0) |
+| LightsOut | 16  | 433(610.4) | *130* (164)   |
+| Twisted   | 16  | 398(683.1) | *29.3* (62.4) |
+|-----------+-----+------------+---------------|
+
+N : number of instances.
 
 #+end_smaller
 #+end_span6
@@ -1153,7 +1142,7 @@ SAE implementation uses a denoising layer (Denoising AE)
 * Why Gumbel-Softmax is necessary?
 
 + Alternative 1: Use a normal NN and *round* the encoder output?
-  + ✘ The *decoder* is not trained with 0/1 value
+  + ✘ The *decoder* is not trained with 0/1 value, cannot obtain the meaningful output
 + Alternative 2: Include the *round* operation in a NN?
   + ✘ Rounding is *non-differentiable* / *Backpropagation impossible*
 
@@ -1163,11 +1152,9 @@ SAE implementation uses a denoising layer (Denoising AE)
 
      20k training images → learn to map 360k unseen images
 
-     (AMA_1 is trivial, though)
-
 + SAE-based propositions are sound ::
 
-     Planners can reason over the generated propositions
+     Given the oracular AMA_1, planners can reason over the propositions
 
 + Latplan maintains the theoretical guarantee in the search algorithm ::
 
@@ -1354,15 +1341,13 @@ initial state
 
  + → We can *enumerate the candidates in /constant time/*.
 
-** The challenge
+** Challenge: Training Input lacks *action symbols*
 
-*Training Input lacks Action Symbols, just pairs of images*
+Should identify *the number of schemas* from *what is un/affected*
 
 [[png:ama/action-symbol]]
 
-+ → Doesn't know *which transitions are of the same type*
-
-** Precondition/Effect learning is not trivial
+** Challenge: Precondition/Effect learning is not trivial
 
 #+begin_xlarge
 Case 1: Linear Space
@@ -1371,10 +1356,11 @@ Case 1: Linear Space
 + *We do not need an action label*; it is linear anyways
 + Then, AMA ≡ *prediction task* ($\approx$ scene prediction in video)
   + We can train a neural network $a(s) = t\;$ by minimizing $|t-a(s)|$
+  + Most DL literature follows this path
 
 [[png:ama/linear]]
 
-** Precondition/Effect learning is not trivial
+** Challenge: Precondition/Effect learning is not trivial
 
 #+begin_xlarge
 Case 2: Graphs
@@ -1390,7 +1376,7 @@ Case 2: Graphs
   */for each state/*
 
 + *Cannot train $a(s) = t\;$ for each $a$*
-  because *we don't know which (s,t) belongs to which $a$.*
+  because *we don't know which $(s,t)$ belongs to which $a$.*
 #+end_center
 
 #+end_span7
@@ -1456,34 +1442,46 @@ break
 #+begin_row-fluid
 #+begin_span6
 + $a(s) = t$ ?
-+ $a$ is actually a variable!
+  
+  We cannot train this
 #+end_span6
 #+begin_span6
-+ $apply(a,s) = t$
-+ Transition is a mapping $a \rightarrow t$
-
-  *conditioned by $s$*
-  
-  (previous state)
-
-+ *The right function to learn!*
++ $a$ is a *variable!*
+ 
+  $apply(a,s) = t$
 #+end_span6
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span12
++ Transition is a mapping
+
+  *action* $a \rightarrow $ *successor* $t$ 
+
+  */conditioned by/*
+
+  *the current state $s$*
+ 
++ 
+  #+begin_alignright
+  *The right function to learn!*
+  #+end_alignright
+#+end_span12
 #+end_row-fluid
 #+end_container-fluid
 #+end_center
-* Action AutoEncoder
+** Implementing $(a \rightarrow t) | s$
 
-[[png:aae/aae-0]]
+ [[png:aae/aae-0]]
 
-** Action AutoEncoder
+** Implementing $(a \rightarrow t) | s$
 
 [[png:aae/aae-1]]
 
-** Action AutoEncoder
+** Implementing $(a \rightarrow t) | s$
 
 [[png:aae/aae-2]]
 
-** Action AutoEncoder
+** Implementing $(a \rightarrow t) | s$
 
 [[png:aae/aae-3]]
 
@@ -1509,11 +1507,11 @@ break
 #+end_xlarge
 #+end_center
 
-* AAE does not address preconditions
+* Action Discriminator learns preconditions
 
- [[png:ama/overview1-1]]
+ [[png:ama/overview2]]
 
-* Action Discriminator is a Binary Classifer
+** Action Discriminator learns Preconditions = Binary Classifer
 
 *Binary classifier* telling which transitions are valid
 
@@ -1533,47 +1531,49 @@ break
 #+end_row-fluid
 #+end_container-fluid
 
-** Invalid transitions
+
+** Negative dataset
 
 + */Invalid transitions/*: *All transitions that are not valid.*
   + We lack the definition; *Cannot be generated.*
++ Can we *collect* the invalid data?
+  + *Teleportation violates the laws of physics*. (at least in a macro scale)
 
-#+begin_container-fluid
-#+begin_row-fluid
-#+begin_span2
+    #+begin_container-fluid
+    #+begin_row-fluid
+    #+begin_span1
+    
+    #+end_span1
+    #+begin_span8
+    [[png:aae/teleportation]]
+    #+end_span8
+    #+begin_span1
+    
+    #+end_span1
+    #+end_row-fluid
+    #+end_container-fluid
 
-#+end_span2
-#+begin_span6
-[[png:aae/teleportation]]
-#+end_span6
-#+begin_span2
-
-#+end_span2
-#+end_row-fluid
-#+end_container-fluid
-
-+ *Teleportation violates the laws of physics*. (at least in a macro scale)
-  + *Invalid transitions /never occur/, thus /never be observed/.*
-
-#+begin_alignright
 #+begin_larger
-+ We lack *invalid transitions!*
++ *Invalid transitions /never happen/ →  
+  an autonomous agent /cannot possibly collect data/ in the real world.*
++ Collecting a negative dataset is */fundamentally impossible/*
 #+end_larger
-#+end_alignright
 
-** PU-Learning framework (Elkan & Noto, KDD 08')
+** Solution: PU-Learning (Elkan & Noto, KDD 08')
 
-Learning *Positive & negative classifier* from *positive & /mixed/ datasets*.
+Training a *positive & negative classifier* from the *positive & /unlabelled/ datasets*.
 
 + Positive: Training Input. *Observed data are valid, guaranteed*
-+ Mixed: *Successor candidates generated by the AAE*
++ Unlabelled: *Successor candidates generated by the AAE*
   + Some are valid, some are invalid
 
 #+begin_alignright
 + Now we can train the AD!
+
+  (SD explanation: skipped)
 #+end_alignright
 
-** Successor Function
+* Planning using AMA_2
 
 AAE *enumerates* the canditates; AD/SD *filters* the invalid.
 
@@ -1587,13 +1587,9 @@ AAE *enumerates* the canditates; AD/SD *filters* the invalid.
 # & \qquad \land Encode(Decode(s)) \equiv s \\
 # & \qquad \land Apply(Action(t,s),s) \equiv t \}
 
-* Planning using AMA_2
+We have *action symbols and propositional states!*
 
-Using a symbolic forward-search planner
-
-+ Effects/preconditions are embedded in NNs, but there are *discrete action labels*
-+ Simple $A^*$ with *goal-count* heuristics
-  + The number of different bits from the goal
+Now we can run $A^*$ with *goal-count* heuristics
 
 * AMA_2 Experiments 1
 
@@ -1717,24 +1713,30 @@ Measure the type-1 / type-2 error in %
 
 * Conclusion
 
-+ *Latplan Architecture* 
-
-  　　Models / solves the real-world problem as a *symbolic search*
++ *Latplan:* *The /first system/ in history* which completely automatically
+  generates a classical, symbolic planning model from scratch
   # + Input : Unlabelled pairs of images, initial image, goal image
   # + Output : Visualized plans to achieve the goal
-+ *State AutoEncoder(SAE)* : */real-world states/ ↔ /propositional states/*
-+ *Action AutoEncoder(AAE)* : */transitions/ ↔ /action labels/, /effects/*
-+ *Action Discriminator(AD)* : */transition/ → /bool/* with *PU-Learning*
 
-#+begin_center
-+ *Two of the major grounding problems were solved!*
-  | Types of symbols      |                              |
-  |-----------------------+------------------------------|
-  | Propositional symbols | *Solved!*                    |
-  | Action symbols        | *Solved!*                    |
-  | Object symbols        | R-CNN (Computer Vision) etc? |
-  | Predicate symbols     | ???                          |
-#+end_center
++ *State AutoEncoder(SAE)* : */real-world states/ ↔ /propositional states/*
+  
+  *Action AutoEncoder(AAE)* : */transitions/ ↔ /action labels/, /effects/*
+  
+  *Action Discriminator(AD)* : */transition/ → /bool/* with *PU-Learning*
+
+  #+begin_center
+  *Two of the major grounding problems were solved!*
+  | Types of symbols      |                             |
+  |-----------------------+-----------------------------|
+  | Propositional symbols | *Solved!*                   |
+  | Action symbols        | *Solved!*                   |
+  | Object symbols        | Computer Vision techniques? |
+  | Predicate symbols     | ???                         |
+  
+  Future work: improved accuracy, runtime efficiency.
+  
+  *This opens many avenue for future research.*
+  #+end_center
 
 ** Future Work (Input format)
 
@@ -1746,7 +1748,7 @@ LatPlan is an *architecture* : Any system with SAE is an implementation
 + Example:
   + Transition rule "*This is an apple, this is a pen → oh, ApplePen!*"
     
-+ */Latplan/* brings AI to a new level e.g.
++ When this happens, */Latplan/* brings AI to a new level e.g.
   
   *1000 steps of natural language reasoning with /logic/, not by reflex*
   
@@ -1766,15 +1768,23 @@ LatPlan is an *architecture* : Any system with SAE is an implementation
   + Gumbel-Softmax layer → just a Softmax layer? (probability)
   + $AO^*$, $LAO^*$ algorithms for *optimal planning under uncertainty*
     
-** Other Future Works
+** Future Work (Propositional → First-order)
 
-Extracting rules from AAE/AD (discussed later)
+SAE can generate propositional symbols (state $s = \{q,r\ldots\}$)
 
-Extracting much higher-order rule (predicates, HTN)
++ 1st-order logic (predicate $p(a,b)$ )
 
-* This is the start of *neural-symbolic* AI.
++ We need *object recognition from images* (parameters $a,b$)
 
-[[png:latplanlogo]]
++ SAE with networks for object recognition (e.g. R-CNN) should achieve this
+
+** Future Work (Knowledge extraction)
+
+AMA_2 (AAE/AD) is a neural network, thus precondition/effects are in a blackbox
+
+Hinders deriving heuristic functions
+
+Knowledge extraction by Konidaris et al.('14,'15), δ-ILP (Deepmind) ?
 
 * Appendix
 
@@ -1822,7 +1832,14 @@ DQN *relies on simulators*. ↔ Latplan *reverse-engineers a simulator*.
 
 SCAN system (deepmind)
 
-+ Maps *continuous* latent ↔ *human-provided* symbolic vector
++ Maps *continuous* latent vector and *human-provided* symbolic vector
+  
+  #+begin_smaller
+  + This does not make sense. They are missing points
+  + Because they don't know what symbols are for
+  + They are for efficient, automated reasoning!
+  + Floats are not efficient, humans shouldn't be involved
+  #+end_smaller
 
 δ-ILP (Inductive Logic Programming)
 
@@ -1944,37 +1961,39 @@ Domain-independent Atari Game solver (Invader, Packman…), however:
 
 # 今まではNNとの相性から強化学習が優勢だったが *もうその必要はない*
 
-*** When Latplan returns a /wrong/ solution?
+** When Latplan returns a /wrong/ solution?
 
- *Machine learning may contain errors* (convergence /only on/ $t\rightarrow \infty$, not on real time)
+*Machine learning may contain errors* (convergence /only on/ $t\rightarrow \infty$, not on real time)
 
- + Images → Fraud symbols/model/graph
++ Images → Fraud symbols/model/graph
 
- + *Optimal path on a fraud graph* or *graph disconnected*
++ *Optimal path on a fraud graph* or *graph disconnected*
   
-   A* completeness, soundness, optimality (admissible heuristics) 
+  A* completeness, soundness, optimality (admissible heuristics) 
 
- + Fraud visualized plan (noisy) / no plan found
++ Fraud visualized plan (noisy) / no plan found
 
- #+begin_center
- #+begin_larger
- LatPlan may make */wrong observations/* but no */wrong decisions/*
- #+end_larger
+#+begin_center
+#+begin_larger
+LatPlan may make */wrong observations/* but no */wrong decisions/*
+#+end_larger
 
- BTW, "correctness" is defined by error prone observations by humans anyways ...
- #+end_center
+BTW, "correctness" is defined by error prone observations by humans anyways ...
+#+end_center
 
- #+begin_alignright
-  (completeness, optimality) → better reliablility than Reinforcement Learning
- #+end_alignright
+#+begin_alignright
+ (completeness, optimality) → better reliablility than Reinforcement Learning
+#+end_alignright
 
-*** Reinforcement Learning
+** Reinforcement Learning
 
-Not only *perception* but *decision making also depends on training*
+Both *perception* and *decision making* depend on training
 
-+ */Each training result does not have admissibility/*
++ */When the learned policy is wrong/*,
 
-+ */When the learned policy is wrong, the solution could be suboptimal/*
+  + *the solution could be suboptimal*
+
+  + */It could even fail to find solutions (incomplete agent)/*
 
 #+begin_quote
 ... AlphaGo was unprepared for Lee Sedol’s Move 78 because it
@@ -1990,24 +2009,15 @@ Cade Metz. "In Two Moves, that Redifined the Future." /Wired/, 2016
 RL may make *wrong decisions*.
 #+end_larger
 #+end_center
-** Future Work (SAE)
-
-SAE can generate propositional symbols (state $s = \{q,r\ldots\}$)
-
-+ 1st-order logic (predicate $p(a,b)$ )
-
-+ We need *object recognition from images* (parameters $a,b$)
-
-+ SAE with networks for object recognition (e.g. R-CNN) should achieve this
 
 ** Why symbols?
 
 Symbols are strong abstraction mechanisms becasue
 
 + Meanings do not matter ::
-     You do not have to understand it: Does a symbol $X$ mean an apple or a car?
+     No understanding necessary: Does a symbol $X$ mean an apple or a car?
  
-     Logical reasoning can be performed by mechanical application of rules
+     Logical reasoning by mechanical application of rules
      
      + Domain-independent planning : *mystery* vs *nomystery*
 
@@ -2017,3 +2027,9 @@ Symbols are strong abstraction mechanisms becasue
      A latent vector is a conjunction (and)
      
      Heuristic functions use modus ponens to derive guidance
+
+* This is the start of *neural-symbolic* AI!
+
+[[png:latplanlogo-in-sicp]]
+
+(yeah I really like a catchy phrase)
