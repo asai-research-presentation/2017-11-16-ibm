@@ -1,0 +1,3828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-01-27 土 11:34 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Masataro Asai" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.loupe.min.js"></script>
+<script type="text/javascript" src="js/jgestures/jgestures.min.js"></script>
+<script type="text/javascript" src="js/code.js"></script>
+<script type="text/javascript" src="MathJax/MathJax.js"></script>
+<script type="text/javascript" src="js/mathjaxconf.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div class="outline-text-1">
+<div class="org-center">
+<p>
+
+</p>
+
+<div class="xlarge">
+<p>
+Classical Planning in
+</p>
+
+<p>
+Deep Latent Space:
+</p>
+
+<p>
+Bridging the Subsymbolic-Symbolic Boundary
+</p>
+
+</div>
+
+<div class="larger">
+<p>
+Masataro Asai
+</p>
+
+<p>
+The University of Tokyo
+</p>
+
+</div>
+
+<p>
+Note to Basel people: this presentation is aimed at the general audience who may
+not be familiar or even haven't heard about AI planning.
+</p>
+</div>
+
+<div class="note">
+<div class="alignright">
+<p>
+Made by guicho2.71828 (Masataro Asai)
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<div class="xlarge">
+<div class="org-center">
+<p>
+Hello, Machine Learning people!
+</p>
+</div>
+
+</div>
+
+<div class="org-center">
+<p>
+Deep Learning, RL, data mining, etc&#x2026;
+</p>
+
+<div class="xlarge">
+<ul class="org-ul">
+<li>Do you identify yourself as a connectionist? ✋</li>
+</ul>
+
+</div>
+</div>
+
+<div class="resume">
+<p>
+First of all, hello machine learning people.
+Im not a machine learning person.
+Im usually studying a type of symbolic AI and I visited here expecting an interesting conversation with
+machine learning professionals.
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="xlarge">
+<div class="org-center">
+<p>
+Hello, Symbolic AI people!
+</p>
+</div>
+
+</div>
+
+<div class="org-center">
+<p>
+SAT, CP, Logic, TCS, &#x2026;
+</p>
+
+<div class="xlarge">
+<ul class="org-ul">
+<li>Have you tried any DL libraries? ✋</li>
+</ul>
+
+</div>
+</div>
+
+<div class="resume">
+<p>
+And also, hello other symbolic AI people.
+Although I am not doing exactly the same thing, we have common roots.
+</p>
+
+<p>
+Let me give you one question before presenting my paper&#x2026;
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Introduction</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="larger">
+<div class="org-center">
+<p>
+<b>I am from <i>AI Planning</i> community (symbolic, logic-based)</b>
+</p>
+</div>
+
+</div>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="img/static/icapslogo.gif" alt="icapslogo.gif" />
+</p>
+</div>
+
+<p>
+International Conference on Automated Planning and Scheduling
+</p>
+
+<p>
+(AAAI sister conference, 33% avg. accept ratio, since 1990, ECP+AIPS→ICAPS)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> We are working on <b><i>Automated Planners</i></b></h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+　
+</p>
+
+<div class="org-center">
+<div class="larger">
+<p>
+<b>High-level plan for agents</b>
+</p>
+
+<p>
+<i>plan = (action<sub>1</sub>, action<sub>2</sub>, &#x2026; action<sub>n</sub>)</i>
+</p>
+
+<p>
+Initial state → 🚶  → 🚗  → 🔨 → Goal state
+</p>
+
+</div>
+</div>
+
+<p>
+　
+</p>
+
+<div class="org-center">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span4">
+<p>
+<b>1st-Order Logic</b>
+</p>
+
+<p>
+STRIPS/PDDL
+</p>
+
+<p>
+modelling language
+</p>
+
+<p>
+Close-world assumption
+</p>
+
+</div>
+<div class="span4">
+<p>
+<b>Combinatorial Explosion</b>
+</p>
+
+<p>
+High-dimensional
+</p>
+
+<p>
+implicit state space
+</p>
+
+<p>
+PSPACE-Hard
+</p>
+
+</div>
+<div class="span4">
+<p>
+<b>Expensive, Critical Applications</b>
+</p>
+
+<p>
+Satellite Operation
+</p>
+
+<p>
+Deep Space 1
+</p>
+
+<p>
+Mars Exploration Rover
+</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>
+　
+</p>
+
+<ul class="org-ul">
+<li><div class="org-center">
+<div class="larger">
+<p>
+<b>Soundness, Completeness, Optimality</b>
+</p>
+
+<p>
+of the algorithms are important
+</p>
+
+</div>
+<p>
+(compared to "planning" in other AI fields)
+</p>
+</div></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Introduction</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="xlarge">
+<div class="org-center">
+<p>
+Today, I talk about how to integrate DL and logic-based planning systems.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> Overview</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">3</span> Overview</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b><i>Backgrounds</i></b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">4</span> Sliding tile puzzle (a.k.a 8-puzzle)</h2>
+<div class="outline-text-2" id="text-4">
+<div class="container-fluid">
+<div class="org-center">
+<div class="row-fluid">
+<div class="span4">
+<p>
+<img src="img/8puzzle-standard.png" alt="8puzzle-standard.png" />
+Initial State
+</p>
+
+</div>
+<div class="span4">
+<p>
+<img src="img/8puzzle-standard-goal.png" alt="8puzzle-standard-goal.png" />
+Goal State
+</p>
+
+</div>
+<div class="span4">
+
+<div class="figure">
+<p><img src="img/static/8puzzle.gif" alt="8puzzle.gif" />
+</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="alignright">
+<ul class="org-ul">
+<li><b>You need to find a plan to reach the goal.</b></li>
+</ul>
+
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">4.1</span> States</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<b>States</b> as <b>1st-order logic formula</b>, described in <b>PDDL language</b>.
+</p>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<blockquote>
+<div class="smaller">
+<p>
+<i>Empty(x<sub>0</sub>, y<sub>0</sub>)</i>
+</p>
+
+<p>
+<i>Is(panel<sub>6</sub>, x<sub>1</sub>, y<sub>0</sub>)</i>
+</p>
+
+<p>
+<i>Up(y<sub>0</sub>, y<sub>1</sub>), Down(y<sub>1</sub>, y<sub>0</sub>)&#x2026;</i>
+</p>
+
+<p>
+<i>Right(x<sub>0</sub>, x<sub>1</sub>), Left(x<sub>0</sub>, x<sub>1</sub>)&#x2026;</i>
+</p>
+
+</div>
+</blockquote>
+
+</div>
+<div class="span6">
+<div class="org-src-container">
+
+<pre class="src src-lisp">(empty x0 y0)
+(is panel6 x1 y0)
+(up    y0 y1), (down y1 y0)...
+(right x0 x1), (left x0 x1)...
+</pre>
+</div>
+
+</div>
+
+</div>
+<div class="org-center">
+<div class="row-fluid">
+<div class="span4">
+<p>
+<img src="img/8puzzle-standard.png" alt="8puzzle-standard.png" />
+Initial State
+</p>
+
+</div>
+<div class="span4">
+<p>
+<img src="img/8puzzle-standard-goal.png" alt="8puzzle-standard-goal.png" />
+Goal State
+</p>
+
+</div>
+<div class="span4">
+
+<div class="figure">
+<p><img src="img/static/8puzzle.gif" alt="8puzzle.gif" />
+</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">4.2</span> Transitions / Actions</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span9">
+<p>
+Representing  <b>sliding up</b> → <b>Transition Rules (Actions)</b>
+</p>
+
+<blockquote>
+<ul class="org-ul">
+<li><b>When</b> the new location is empty:</li>
+
+<li>The current location <b>becomes empty</b>.</li>
+
+<li>New location is <b>occupied</b> and is <b>not empty</b>.</li>
+</ul>
+</blockquote>
+
+</div>
+<div class="span3">
+<p>
+initial state
+<img src="img/8puzzle-standard-tile7.png" alt="8puzzle-standard-tile7.png" />
+</p>
+
+</div>
+
+</div>
+<div class="row-fluid">
+<div class="span12">
+<ul class="org-ul">
+<li><p>
+<b>First-order Logic Formula</b>
+</p>
+
+<p>
+<b>When</b> <i>Empty(x, y<sub>old</sub>) ∧ is(panel, x, y<sub>new</sub>) ∧ up(y<sub>new</sub>, y<sub>old</sub>)</i> ;
+</p>
+
+<p>
+<b>then</b> <i>¬ Empty(x,y<sub>old</sub>) ∧ Empty(x,y<sub>new</sub>) ∧ ¬ is(panel, x, y<sub>new</sub>) &#x2026;</i>
+</p></li>
+
+<li><p>
+<b>PDDL Model</b> : Actual Input to the Planner
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lisp">(<span style="color: #483d8b;">:action</span> slide-up ...
+ <span style="color: #483d8b;">:precondition</span> (and (empty ?x ?y-old) ...)
+ <span style="color: #483d8b;">:effects</span> (and (not (empty ?x ?y-old)) (empty ?x ?y-new) ...))
+</pre>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">4.3</span> Symbolic planners cannot solve an <b><i>Image-based</i></b> 8-puzzle</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-center">
+<ul class="org-ul">
+<li><b>PDDL for 8-puzzle</b> can be solved <b>optimally</b> <b>&lt;&lt; 1sec</b></li>
+</ul>
+</div>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span8">
+
+<div class="figure">
+<p><img src="img/static/puzzle.jpg" alt="puzzle.jpg" />
+</p>
+</div>
+
+</div>
+<div class="span4">
+<ul class="org-ul">
+<li><div class="org-center">
+<p>
+<b>BUT</b>
+</p>
+
+<p>
+<b>WE</b>
+</p>
+
+<p>
+<b>DO</b>
+</p>
+
+<p>
+<b>NOT</b>
+</p>
+
+<p>
+<b>HAVE</b>
+</p>
+
+<p>
+<b>A</b>
+</p>
+
+<div class="larger">
+<p>
+<b><i>PDDL</i></b>
+</p>
+
+<p>
+<b><i>MODEL</i>!</b>
+</p>
+
+</div>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="alignright">
+<ul class="org-ul">
+<li><p>
+<b>Impractical</b> in an <b>unknown environment</b> where <b><i>no human</i> is available</b>
+</p>
+
+<div class="larger">
+<p>
+E.g. <b>autonomous space exploration!</b>
+</p>
+
+</div></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">4.4</span> Knowledge-Acquisition Bottleneck (Cullen, 1988):</h3>
+<div class="outline-text-3" id="text-4-4">
+<blockquote>
+<p>
+The <b>cost of human</b> involved for converting <b>real-world problems</b> into inputs for
+domain-independent <b>symbolic</b> systems
+</p>
+</blockquote>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<ul class="org-ul">
+<li><b>For <i>image-based</i> tasks</b>, we must <b>automate 2 processes</b>:</li>
+</ul>
+
+</div>
+
+</div>
+<div class="row-fluid">
+<div class="span6">
+<ul class="org-ul">
+<li><p>
+<b>1. Symbol Grounding:</b>
+</p>
+
+<div class="org-center">
+<div class="larger">
+<p>
+<b><i>Symbols</i> = identifiable entities</b>
+</p>
+
+</div>
+</div>
+
+<div class="smaller">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Types</th>
+<th scope="col" class="org-left">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Objects</td>
+<td class="org-left"><b>panel<sub>7</sub></b>, <b>x<sub>0</sub></b>, <b>y<sub>0</sub></b> &#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">Predicates</td>
+<td class="org-left">(<b>empty</b> ?x ?y)</td>
+</tr>
+
+<tr>
+<td class="org-left">Propositions</td>
+<td class="org-left"><b>p<sub>28</sub></b> = (empty x<sub>0</sub> y<sub>0</sub>)</td>
+</tr>
+
+<tr>
+<td class="org-left">Actions</td>
+<td class="org-left">(<b>slide-up</b> panel<sub>7</sub> x<sub>0</sub> y<sub>1</sub>)</td>
+</tr>
+</tbody>
+</table>
+
+</div></li>
+</ul>
+
+</div>
+<div class="span6">
+<ul class="org-ul">
+<li><p>
+<b>2. Action Model Acquisition (AMA):</b>
+</p>
+
+<div class="org-center">
+<div class="larger">
+<p>
+<b><i>Describe</i> actions.</b>
+</p>
+
+</div>
+</div>
+
+<p>
+　
+</p>
+
+<div class="org-center">
+<p>
+<b>When</b> <i>Empty(x, y<sub>old</sub>) ∧ &#x2026;</i> ;
+</p>
+
+<p>
+<b>Then</b> <i>¬Empty(x,y<sub>old</sub>) ∧</i> &#x2026;
+</p>
+</div></li>
+</ul>
+
+<div class="org-center">
+<ul class="org-ul">
+<li>A <b>Long-Standing Problem</b>&#x2026;</li>
+
+<li><div class="larger">
+<p>
+<b>Now we propose a system which automate these processes&#x2026;</b>
+</p>
+
+</div></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">4.5</span> Latent-Space Planner (<b><i>Latplan</i></b>)</h3>
+<div class="outline-text-3" id="text-4-5">
+
+<div class="figure">
+<p><img src="img/latplanlogo.png" alt="latplanlogo.png" />
+</p>
+</div>
+
+<p>
+(embedding the lambda calculus inside a neural architecture)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">5</span> Survey of Exisiting Action Model Acquisition Techniques</h2>
+<div class="outline-text-2" id="text-5">
+<div class="xlarge">
+<p>
+Survey of Exisiting Action Model Acquisition Techniques
+</p>
+
+</div>
+
+<p>
+　
+</p>
+
+<div class="alignright">
+<p>
+i.e. Systems that find action models
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">5.1</span> Limitations of Existing Systems</h3>
+<div class="outline-text-3" id="text-5-1">
+<div class="xlarge">
+<div class="org-center">
+<p>
+So far, ALL existing AMA systems require <b><i>symbolic / near-symbolic, accurate state inputs</i></b> and/or <b><i>discrete action labels</i></b>.
+</p>
+</div>
+
+</div>
+
+<div class="alignright">
+<p>
+i.e. They need symbols to find an action model
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">5.2</span> So far, ALL existing AMA systems require <b><i>symbolic inputs</i></b></h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+ARMS (Yang AIJ07)
+LOCM (ICAPS09)
+Argall (AIJ09)
+Mourao (UAI12)
+</p>
+
+<p>
+All taking the <b>symbolic</b> inputs to find the <b>action models</b>
+</p>
+
+
+<div class="figure">
+<p><img src="img/static/locm.png" alt="locm.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline16" class="outline-3">
+<h3 id="orgheadline16"><span class="section-number-3">5.3</span> Framer (ICAPS17)</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+<b>Near-Symbols</b> : Parses natural language sentences with a <b>clear grammatical structure</b>.
+</p>
+
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+
+<div class="figure">
+<p><img src="img/static/framer.png" alt="framer.png" />
+</p>
+</div>
+
+</div>
+<div class="span6">
+<ul class="org-ul">
+<li>Alleviates the burden of domain experts, but <b>still requires human</b></li>
+<li><p>
+Not handling "Natural Language":
+</p>
+
+<div class="smaller">
+<p>
+Pick up that .. ur .. parcel over there &#x2026; yes, it has a label on it, it says Parcel1, you can see
+it from here, the Location B. Then put it in the car, I mean the truck, the red one whose rear bumper is a bit rusty.
+</p>
+
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline17" class="outline-3">
+<h3 id="orgheadline17"><span class="section-number-3">5.4</span> Konidaris, Kaelbring (AAAI14, IJCAI15)</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+"Constructing Symbolic Representations for High-Level Planning" (AAAI14)
+</p>
+
+<dl class="org-dl">
+<dt>What it does</dt><dd><p>
+Converting a <b>Semi-MDP Model</b> to a <b>PDDL Model</b> by set-theoretic representation
+</p>
+
+<p>
+i.e. <b>Model-to-Model</b> conversion, not <b>generating a model from the scratch</b>
+</p></dd>
+<dt>Semi-MDP contains Action Symbols</dt><dd><code>move</code> and <code>interact</code> (Playroom)</dd>
+<dt>Sensor inputs are structured (Labels for "State Variable" are known)</dt><dd><p>
+     x/y-distance, light level, whether a monkey cries
+</p>
+
+<p>
+→ Each sensor has a distinct meaning (no overwrap)
+</p></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-3">
+<h3 id="orgheadline18"><span class="section-number-3">5.5</span> Learning from Video for Board Game (Bardu ICRA10; Kaiser AAAI12; Kirk 16)</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+<b>Handles Images, but with strong assumptions (almost symbol)</b> e.g.
+</p>
+
+<blockquote>
+<p>
+Tic-Tac-Toe with <b>Ellipse Detectors</b> (Bardu 10)
+</p>
+
+<p>
+→ Almost immediately provides propositions
+</p>
+
+<p>
+→ Also, Domain-dependent ("3x3 grid" "Ellipse" are hard-coded)
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-2">
+<h2 id="orgheadline29"><span class="section-number-2">6</span> Problem Setting</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-center">
+<div class="xlarge">
+<p>
+Problem Setting
+</p>
+
+<p>
+of
+</p>
+
+<p>
+Latent-Space Planner
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-3">
+<h3 id="orgheadline20"><span class="section-number-3">6.1</span> Task: Solving an Imaged-Based 8-puzzle w/o Prior Explicit Knowledge</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+<b>No Prior Knowledge</b> : labels/symbols such as "9 tiles", "moving"
+</p>
+
+
+<div class="figure">
+<p><img src="img/static/puzzle.jpg" alt="puzzle.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-3">
+<h3 id="orgheadline21"><span class="section-number-3">6.2</span> Task: Solving an Imaged-Based 8-puzzle <b><i>w/o Prior Explicit Knowledge</i></b></h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+<b><i>No Prior Knowledge</i></b> : labels/symbols such as "9 tiles", "moving"
+</p>
+
+
+<div class="figure">
+<p><img src="img/static/puzzle.jpg" alt="puzzle.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">6.3</span> Task: Solving <b><i>ANY</i></b> Imaged-Based tasks w/o Prior Explicit Knowledge</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+<b><i>No Prior Knowledge</i></b> : <b><i>Domain-independent Image-based planner</i></b>
+</p>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<p>
+Tower of Hanoi
+</p>
+
+
+<div class="figure">
+<p><img src="img/static/hanoi.jpg" alt="hanoi.jpg" />
+</p>
+</div>
+
+</div>
+<div class="span4">
+<p>
+Lights-Out
+</p>
+
+
+<div class="figure">
+<p><img src="img/static/lightsout.jpg" alt="lightsout.jpg" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-3">
+<h3 id="orgheadline23"><span class="section-number-3">6.4</span> Inputs</h3>
+<div class="outline-text-3" id="text-6-4">
+<div class="xlarge">
+<p>
+The system is given <b>2 types of input</b>:
+</p>
+
+<ul class="org-ul">
+<li>Training Input</li>
+<li>Planning Input</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">6.5</span> Input1: Training Input &#x2013; Image Pairs</h3>
+<div class="outline-text-3" id="text-6-5">
+
+<div class="figure">
+<p><img src="img/overview/1.png" alt="1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">6.6</span> Input1: Training Input &#x2013; Image Pairs</h3>
+<div class="outline-text-3" id="text-6-6">
+<div class="right">
+
+<div class="figure">
+<p><img src="img/overview/2.png" alt="2.png" />
+</p>
+</div>
+
+</div>
+
+<p>
+They are <b>randomly sampled</b> transitions
+</p>
+
+<ul class="org-ul">
+<li>No <b>state descriptions</b> (unlike AlphaGo)</li>
+<li>No <b>expert traces</b> (unlike AlphaGo)</li>
+<li>No <b>rewards</b> (unlike DRL)</li>
+<li><p>
+No <b>access to the simulator</b> (unlike Atari)
+</p>
+
+<p>
+→ cannot ask for more examples
+</p></li>
+<li><div class="larger">
+<p>
+No <b><i>action symbols</i></b> (unlike any)
+</p>
+
+<p>
+　　(e.g. ↑↓←→AB in Atari, grids in Go)
+</p>
+
+<p>
+→ doesn't know what's happening in each transition
+</p>
+
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-3">
+<h3 id="orgheadline26"><span class="section-number-3">6.7</span> Input2: Planning Input &#x2013; Initial Image &amp; Goal Image</h3>
+<div class="outline-text-3" id="text-6-7">
+
+<div class="figure">
+<p><img src="img/overview/input2.png" alt="input2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">6.8</span> Task: Solving <b><i>ANY</i></b> Imaged-Based tasks w/o Prior Explicit Knowledge</h3>
+<div class="outline-text-3" id="text-6-8">
+<embed src="img/overview/3.svg" type="image/svg+xml"  />
+</div>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-3">
+<h3 id="orgheadline28"><span class="section-number-3">6.9</span> Task: Solving <b><i>ANY</i></b> Imaged-Based tasks w/o Prior Explicit Knowledge</h3>
+<div class="outline-text-3" id="text-6-9">
+<embed src="img/overview/3-hanoi.svg" type="image/svg+xml"  />
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-2">
+<h2 id="orgheadline30"><span class="section-number-2">7</span> Overview</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b><i>Latplan Architecture</i></b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline37" class="outline-2">
+<h2 id="orgheadline37"><span class="section-number-2">8</span> Latent-Space Planner (<b><i>LatPlan</i></b>) architechture</h2>
+<div class="outline-text-2" id="text-8">
+
+<div class="figure">
+<p><img src="img/overview/planning1.png" alt="planning1.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline31" class="outline-3">
+<h3 id="orgheadline31"><span class="section-number-3">8.1</span> Step 1: Propositional Symbol Grounding</h3>
+<div class="outline-text-3" id="text-8-1">
+
+<div class="figure">
+<p><img src="img/overview/planning2.png" alt="planning2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline32" class="outline-3">
+<h3 id="orgheadline32"><span class="section-number-3">8.2</span> Step 2: Action Model Acquisition (AMA)</h3>
+<div class="outline-text-3" id="text-8-2">
+
+<div class="figure">
+<p><img src="img/overview/planning3.png" alt="planning3.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline33" class="outline-3">
+<h3 id="orgheadline33"><span class="section-number-3">8.3</span> Step 3: Solve the Symbolic Planning Problem</h3>
+<div class="outline-text-3" id="text-8-3">
+
+<div class="figure">
+<p><img src="img/overview/planning4.png" alt="planning4.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline34" class="outline-3">
+<h3 id="orgheadline34"><span class="section-number-3">8.4</span> Step 4: Executing the Symbolic Plan</h3>
+<div class="outline-text-3" id="text-8-4">
+
+<div class="figure">
+<p><img src="img/overview/planning5.png" alt="planning5.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline35" class="outline-3">
+<h3 id="orgheadline35"><span class="section-number-3">8.5</span> Step 5: Obtaining the Visualization</h3>
+<div class="outline-text-3" id="text-8-5">
+
+<div class="figure">
+<p><img src="img/overview/planning6.png" alt="planning6.png" />
+</p>
+</div>
+
+<div class="org-center">
+<div class="larger">
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline36" class="outline-3">
+<h3 id="orgheadline36"><span class="section-number-3">8.6</span> Summary</h3>
+<div class="outline-text-3" id="text-8-6">
+<div class="xlarge">
+<p>
+Latplan: Latent-space Planner.
+</p>
+
+</div>
+
+<div class="larger">
+<ul class="org-ul">
+<li><b>bridges <i>real-world</i> and <i>propositional</i> representations.</b></li>
+<li><b>performs a <i>propositional, logical, sound reasoning</i>.</b></li>
+<li><b>returns a <i>real-world</i> output</b> (e.g. images).</li>
+<li><b>runs in a <i>completely automated, unsupervised</i> manner.</b></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline38" class="outline-2">
+<h2 id="orgheadline38"><span class="section-number-2">9</span> Overview</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b><i>State AutoEncoder (SAE)</i></b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline49" class="outline-2">
+<h2 id="orgheadline49"><span class="section-number-2">10</span> State AutoEncoder (SAE)</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+SAE is a <b>neural network</b> which provides two functions:
+</p>
+
+<ul class="org-ul">
+<li>$b = Encode(r)$: <b>maps a raw datum $r\;$to a bit vector $b\;$</b></li>
+
+<li>$\tilde{r} = Decode(b)$: <b>maps a bit vector $b\;$to a raw datum $\tilde{r}$</b></li>
+</ul>
+
+<div class="larger">
+<ul class="org-ul">
+<li><b>A bidirectional mapping between</b>
+
+<ul class="org-ul">
+<li><b>subsymbolic representation</b> (image array) and</li>
+
+<li><p>
+<b>symbolic representation</b>
+</p>
+
+<div class="alignright">
+<p>
+(bit vectors = propositional variables)
+</p>
+
+</div></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+
+<div id="outline-container-orgheadline39" class="outline-3">
+<h3 id="orgheadline39"><span class="section-number-3">10.1</span> Neural Network 101</h3>
+<div class="outline-text-3" id="text-10-1">
+
+<div class="figure">
+<p><img src="img/deeplearning/1.png" alt="1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline40" class="outline-3">
+<h3 id="orgheadline40"><span class="section-number-3">10.2</span> Neural Network 101</h3>
+<div class="outline-text-3" id="text-10-2">
+
+<div class="figure">
+<p><img src="img/deeplearning/2.png" alt="2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline41" class="outline-3">
+<h3 id="orgheadline41"><span class="section-number-3">10.3</span> Neural Network 101</h3>
+<div class="outline-text-3" id="text-10-3">
+
+<div class="figure">
+<p><img src="img/deeplearning/3.png" alt="3.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline42" class="outline-3">
+<h3 id="orgheadline42"><span class="section-number-3">10.4</span> Stochastic Gradient Descent + GPU</h3>
+<div class="outline-text-3" id="text-10-4">
+
+<div class="figure">
+<p><img src="img/static/gradient-descent.png" alt="gradient-descent.png" />
+</p>
+</div>
+
+<p>
+Plus misc techniques e.g. <b>Batchnorm</b>, <b>Dropout</b>
+</p>
+
+<div class="larger">
+<p>
+<b>Pretty much everything is on the standard online tutorial / lecture cource / MOOP</b>
+</p>
+
+<p>
+<b>Good libraries &#x2014; Tensorflow, Keras</b> &#x2014; you can learn in 1-2 months
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-3">
+<h3 id="orgheadline43"><span class="section-number-3">10.5</span> NN for Standard Classification Tasks (Supervised)</h3>
+<div class="outline-text-3" id="text-10-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Task</th>
+<th scope="col" class="org-left">Input x</th>
+<th scope="col" class="org-left">Output y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Image classification</td>
+<td class="org-left">Image</td>
+<td class="org-left">Label (1=car, 2=cat, 3=monkey &#x2026;)</td>
+</tr>
+</tbody>
+</table>
+
+<div class="larger">
+<ul class="org-ul">
+<li><b>This is not suitable for our task;</b>
+<ul class="org-ul">
+<li><b><i>There are no labels</i></b> provided by humans, i.e.</li>
+<li><p>
+<b><i>There are no real answers</i></b> for symbol grounding
+</p>
+
+<p>
+　
+</p>
+
+<div class="alignright">
+<p>
+(<b>People also ground symbols differently.</b>
+</p>
+
+<p>
+cf. How many colors in a 🌈, 5,6 or 7?)
+</p>
+
+</div></li>
+</ul></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline44" class="outline-3">
+<h3 id="orgheadline44"><span class="section-number-3">10.6</span> Unsupervised Learning for NN: AutoEncoder (AE)</h3>
+<div class="outline-text-3" id="text-10-6">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span7">
+<p>
+　
+</p>
+
+<p>
+Target Function: Identity $x=f(x)$
+</p>
+<ul class="org-ul">
+<li>Encode $x\;$to a <b>latent vector</b> $z$</li>
+<li>Decode $z\;$back to the input $x$</li>
+
+<li>Training: Minimize $|x - f(x)|\;$
+  (<b>reconstruction loss</b>)</li>
+</ul>
+
+</div>
+<div class="span5">
+
+<div class="figure">
+<p><img src="img/deeplearning/autoenc.png" alt="autoenc.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="alignright">
+<div class="larger">
+<ul class="org-ul">
+<li><p>
+→ However, <b><i>✘ Latent vector Z is real-valued</i></b>
+</p>
+
+<p>
+<b><i>INCOMPATIBLE to propositional reasoning</i></b>
+</p></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline45" class="outline-3">
+<h3 id="orgheadline45"><span class="section-number-3">10.7</span> Variational AutoEncoder (VAE, Kingma 2014)</h3>
+<div class="outline-text-3" id="text-10-7">
+<p>
+An AutoEncoder that <b>enforces a certain distribution</b> on $Z \subset \mathbb{R}^n$over the dataset $X$
+</p>
+
+<blockquote>
+<p>
+You have $X=${ 10k images of apples }. If you train a <b>Gaussian VAE</b> on $X$, then $Z = Encode(X) \approx N(\mu,\sigma)$for some $\mu,\sigma \in \mathbb{R}^n$.
+</p>
+</blockquote>
+
+<p>
+VAE needs a <b>reparametrization trick</b> because random distributions are non-differentiable.
+</p>
+
+<blockquote>
+<p>
+Reparametrization for $N(\mu,\sigma)$: $\mu + \sigma N(0,1)$
+</p>
+
+<div class="org-center">
+<p>
+$\mu$and $\sigma$are differentiable (trainable) vectors, $N(0,1)$is not.
+</p>
+</div>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">10.8</span> Gumbel-Softmax VAE (Jang, Gu, ICLR2017)</h3>
+<div class="outline-text-3" id="text-10-8">
+<p>
+<b>Additional optimization penalty</b> which enforces $Z \sim \textbf{Categorical}$:
+</p>
+
+<p>
+　　　→ $z\;$converges to a 1-hot vector e.g.  $\langle 0,0,1,0 \rangle$.
+</p>
+
+<p>
+Example: Represent an MNIST image with 30 variables of 8 categories.
+</p>
+
+<div class="org-center">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="649px" height="206px" version="1.1" content="&lt;mxfile userAgent=&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36&quot; version=&quot;6.0.1.2&quot; editor=&quot;www.draw.io&quot; type=&quot;google&quot;&gt;&lt;diagram name=&quot;Page-1&quot;&gt;3ZhLc5swEMc/Dcd0kAQCX+O67SGd6TTTaXqU0fJoZcsjy69++oogDBjs0MZ2TONDpL9ey29Xi5BDxrPtR8UW6WfJQTjY5VuHvHcwxshF5l+u7AqF+rgQEpXxQkKV8Jj9Biu6Vl1lHJaNjlpKobNFU4zkfA6RbmhMKblpdoulaK66YAm0hMeIibb6PeM6LdTQdyv9E2RJWq6MXNsyY2VnKyxTxuWmJpGJQ8ZKSl2UZtsxiBxeyaUY9+FI694wBXPdZ0AQh1EYx4xP46kXRHBnZ1gzsbIPaw3Vu/LpN2mm4XHBory+MR52yH2qZ8LUkCnGmRBjKaR67k0AcR8Coy+1kr+g1jKiAWHUtCi5mnPgdrw1AJSG7dGnQntWJshAzkCrneliB5CAFENsfCHPL+qbylt7n6Q1T+HAisxGSLKfu4JoCpZjT6a4xRT71MFUmFXvebY2xSQvfoWHb6VsFqm1tHygUjmbroyR9y944ww08QFN7LktmmEHzPASLEmLpY/wcFiiW2LptVAAN3nOVqXSqUzknIlJpdb2qtuEA9tMP9XKP/Iu7/y8NjeGPtkRz5Wq7SdovbMJnq20NFK17oOUiwb63LzT4M3TyJWK4HT0aKYS0Kd2a9uBCgTT2bq5/mvc4eEIU4xG4PsesCDqCO1z+ufKpBHugZq8FeorRf6VmfdBfiQ9XR45HXbi9kf4zRJ3i2Uw7AOFd0ssw//9JXgseupponu3Ht8MwYEDL+KZ0cDehyeBBqd3BB31B2pn+SIzY0D/KYqYsKMO3LK36N88hc7+1cgZhHHU9dVIoxCm8SW+GukINQm67bSEaEde2otnDX901nAfRGaiPTYSutYJ5uiRdthRfldeot1IlPfI8i9Abcb8AeLYz3+diJ//Xgm1hIg6IHpdEL1LQCxvEwcK0Q4I3IP8+8ZQX/9SuwGoJGxud+STFtSQtpli3/trpqZa3VwX54rq/p9M/gA=&lt;/diagram&gt;&lt;/mxfile&gt;"><defs/><g transform="translate(0.5,0.5)"><rect x="288" y="0.75" width="75" height="202.5" rx="11.25" ry="11.25" fill="#e1d5e7" stroke="#9673a6" pointer-events="none"/><path d="M 243 72 L 273 102 L 243 132 L 213 102 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(231.5,91.5)scale(0.75)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="30" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 32px; white-space: nowrap; word-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">256<div>ReLU</div></div></div></foreignObject><text x="15" y="19" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 168 72 L 198 102 L 168 132 L 138 102 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(156.5,91.5)scale(0.75)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="30" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 32px; white-space: nowrap; word-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">512<div>ReLU</div></div></div></foreignObject><text x="15" y="19" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 198 102 L 208.22 102" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 212.16 102 L 206.91 104.63 L 208.22 102 L 206.91 99.38 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 120.75 102 L 135.75 102 L 123 102 L 133.22 102" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 137.16 102 L 131.91 104.63 L 133.22 102 L 131.91 99.38 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 273 102 L 288 102 L 273 102 L 283.22 102" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 287.16 102 L 281.91 104.63 L 283.22 102 L 281.91 99.38 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 482.25 72 L 512.25 102 L 482.25 132 L 452.25 102 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(470.5,91.5)scale(0.75)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="30" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 32px; white-space: nowrap; word-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">512<div>ReLU</div></div></div></foreignObject><text x="15" y="19" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 407.25 72 L 437.25 102 L 407.25 132 L 377.25 102 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><g transform="translate(395.5,91.5)scale(0.75)"><switch><foreignObject style="overflow:visible;" pointer-events="all" width="30" height="26" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 32px; white-space: nowrap; word-wrap: normal; text-align: center;"><div xmlns="http://www.w3.org/1999/xhtml" style="display:inline-block;text-align:inherit;text-decoration:inherit;">256<div>ReLU</div></div></div></foreignObject><text x="15" y="19" fill="#000000" text-anchor="middle" font-size="12px" font-family="Helvetica">[Not supported by viewer]</text></switch></g><path d="M 437.25 102 L 447.47 102" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 451.41 102 L 446.16 104.63 L 447.47 102 L 446.16 99.38 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 360 102 L 375 102 L 362.25 102 L 372.47 102" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 376.41 102 L 371.16 104.63 L 372.47 102 L 371.16 99.38 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><rect x="526.5" y="42" width="120" height="120" rx="18" ry="18" fill="#dae8fc" stroke="#6c8ebf" pointer-events="none"/><path d="M 512.25 102 L 521.72 102" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><path d="M 525.66 102 L 520.41 104.63 L 521.72 102 L 520.41 99.38 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/><rect x="0.75" y="42" width="120" height="120" rx="18" ry="18" fill="#dae8fc" stroke="#6c8ebf" pointer-events="none"/>
+<image xlink:href="img/static/x0.gif" x="8.25" y="49.5" width="105" height="105" fill="#f5f5f5" stroke="#666666" pointer-events="none"/>
+<image xlink:href="img/static/x1.gif" x="534" y="49.5" width="105" height="105" fill="#f5f5f5" stroke="#666666" pointer-events="none"/>
+<image xlink:href="img/static/y.gif" x="293.25" y="6.75" width="64.5" height="190.5" fill="#f5f5f5" stroke="#666666" pointer-events="none"/></g></svg>
+</div>
+
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+Key idea: <b>These categorical variables are <i>directly</i> usable</b>
+</p>
+
+<p>
+<b>as the source of propositional models</b>
+</p>
+
+<p>
+In particular, <b>2 categories → propositional variables (true/false)</b>
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline47" class="outline-3">
+<h3 id="orgheadline47"><span class="section-number-3">10.9</span> State Autoencoder (<b><i>before training</i></b>)</h3>
+<div class="outline-text-3" id="text-10-9">
+
+<div class="figure">
+<p><img src="img/sae/state-ae-before.png" alt="state-ae-before.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline48" class="outline-3">
+<h3 id="orgheadline48"><span class="section-number-3">10.10</span> State Autoencoder (<span class="underline"><i>after training</i></span>)</h3>
+<div class="outline-text-3" id="text-10-10">
+
+<div class="figure">
+<p><img src="img/sae/state-ae.png" alt="state-ae.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline53" class="outline-2">
+<h2 id="orgheadline53"><span class="section-number-2">11</span> Verifying the feasibility of Latplan system and SAE</h2>
+<div class="outline-text-2" id="text-11">
+<blockquote>
+<div class="org-center">
+<p>
+<b>Q</b>: Does the SAE (neural network) produce 
+</p>
+
+<p>
+<b><i>sound propositions</i> for <i>reasoning?</i></b>
+</p>
+</div>
+</blockquote>
+
+<p>
+AMA<sub>1</sub> : a <b><i>trivial, oracular</i></b> AMA method <b>w/o generalization</b>.
+</p>
+
+<ul class="org-ul">
+<li><b>Encode the entire raw state transitions</b> in the environment</li>
+<li><p>
+For each transition, perform the following conversion:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp"> 0011 &#8594; 0101  <span style="color: #b22222;">;; </span><span style="color: #b22222;">encoded bit vectors of a transition</span>
+
+&#12288;&#12288;&#12288;&#8595;       <span style="color: #b22222;">;; </span><span style="color: #b22222;">one action per transition</span>
+(<span style="color: #483d8b;">:action</span>       action-0011-0101
+               <span style="color: #b22222;">;; </span><span style="color: #b22222;">before-state is embedded directly</span>
+ <span style="color: #483d8b;">:precondition</span> (and (b0-false) (b1-false) (b2-true) (b3-true))
+               <span style="color: #b22222;">;; </span><span style="color: #b22222;">effect = state diff</span>
+ <span style="color: #483d8b;">:effect</span>       (and (not (b1-false)) (b1-true)
+                    (not (b2-true))  (b2-false)))
+</pre>
+</div></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline50" class="outline-3">
+<h3 id="orgheadline50"><span class="section-number-3">11.1</span> Step 3: Solve the Symbolic Planning Problem</h3>
+<div class="outline-text-3" id="text-11-1">
+
+<div class="figure">
+<p><img src="img/overview/planning4.png" alt="planning4.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline51" class="outline-3">
+<h3 id="orgheadline51"><span class="section-number-3">11.2</span> Step 4: Executing the Symbolic Plan</h3>
+<div class="outline-text-3" id="text-11-2">
+
+<div class="figure">
+<p><img src="img/overview/planning5.png" alt="planning5.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-3">
+<h3 id="orgheadline52"><span class="section-number-3">11.3</span> Step 5: Obtaining the Visualization</h3>
+<div class="outline-text-3" id="text-11-3">
+
+<div class="figure">
+<p><img src="img/overview/planning6.png" alt="planning6.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline62" class="outline-2">
+<h2 id="orgheadline62"><span class="section-number-2">12</span> AMA<sub>1</sub> Experiments</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+SAE: <b>trained with 20k images</b> (note: &gt; 360k entire states in 8-puzzle)
+</p>
+
+<ul class="org-ul">
+<li><b><i>SAE is generalizing</i></b></li>
+</ul>
+
+<p>
+AMA<sub>1</sub>: requires the entire transistions (note: &gt; 1M transitions in 8-puzzle)
+</p>
+
+<ul class="org-ul">
+<li><span class="underline"><i>AMA<sub>1</sub> is NOT generalizing, being an oracle</i></span></li>
+</ul>
+
+<p>
+Planner: a State-of-the-Art, Fast Downward (Helmert, 08)
+</p>
+
+<ul class="org-ul">
+<li>$A^*$<b>(optimal search)</b> : <b>It must find an optimal solution</b></li>
+
+<li>Runtime: ~3sec (instances are too small for symbolic systems)</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline54" class="outline-3">
+<h3 id="orgheadline54"><span class="section-number-3">12.1</span> 8-puzzle Results with MNIST tiles (MNIST 8-puzzle)</h3>
+<div class="outline-text-3" id="text-12-1">
+<p>
+8-puzzle using digits from MNIST database
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/mnist-plan.png" alt="mnist-plan.png" />
+</p>
+</div>
+
+<div class="larger">
+<p>
+An instance whose optimal solution length is known
+</p>
+<div class="xlarge">
+<div class="alignright">
+<p>
+→ <b>31 step optimal plan</b>
+</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-3">
+<h3 id="orgheadline55"><span class="section-number-3">12.2</span> Results with photographic, unseparated tiles (Mandrill 8-puzzle)</h3>
+<div class="outline-text-3" id="text-12-2">
+<p>
+MNIST 8-puzzle has cleanly separated objects -&gt; This domain does not.
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/mandrill-intro.png" alt="mandrill-intro.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">12.3</span> Results with photographic, unseparated tiles (Mandrill 8-puzzle)</h3>
+<div class="outline-text-3" id="text-12-3">
+
+<div class="figure">
+<p><img src="img/results/mandrill-plan.png" alt="mandrill-plan.png" />
+</p>
+</div>
+
+<div class="xlarge">
+<div class="alignright">
+<p>
+→ <b>Optimal Solution</b>
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline57" class="outline-3">
+<h3 id="orgheadline57"><span class="section-number-3">12.4</span> Results with photographic, unseparated tiles (Spider 8-puzzle)</h3>
+<div class="outline-text-3" id="text-12-4">
+
+<div class="figure">
+<p><img src="img/results/spider-plan-new.png" alt="spider-plan-new.png" />
+</p>
+</div>
+
+<div class="org-center">
+<div class="larger">
+<p>
+Notice that <b>latplan has no idea that this is an 8-puzzle</b>; Thus MNIST, Mandrill, Spider are entirely different domains (state encoding is also different)
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline58" class="outline-3">
+<h3 id="orgheadline58"><span class="section-number-3">12.5</span> Tower of Hanoi (3 disks, 4 disks)</h3>
+<div class="outline-text-3" id="text-12-5">
+<p>
+Completely different puzzle problems can be solved by the same system
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/hanoi3.png" alt="hanoi3.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="img/results/hanoi4.png" alt="hanoi4.png" />
+</p>
+</div>
+
+<div class="alignright">
+<div class="xlarge">
+<p>
+→ <b>Optimal Solution</b> (7 steps,15 steps)
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline59" class="outline-3">
+<h3 id="orgheadline59"><span class="section-number-3">12.6</span> Lights Out</h3>
+<div class="outline-text-3" id="text-12-6">
+<p>
+Does not assume "objects" are static (objects may disappear)
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/lightsout_new4x4.png" alt="lightsout_new4x4.png" />
+</p>
+</div>
+
+<div class="alignright">
+<div class="xlarge">
+<p>
+→ <b>Optimal Solution</b>
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline60" class="outline-3">
+<h3 id="orgheadline60"><span class="section-number-3">12.7</span> Twisted Lights Out</h3>
+<div class="outline-text-3" id="text-12-7">
+<p>
+Does not assume grid-like structures
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/lightsout_twisted_new4x4.png" alt="lightsout_twisted_new4x4.png" />
+</p>
+</div>
+
+<div class="alignright">
+<div class="xlarge">
+<p>
+→ <b>Optimal Solution</b>
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline61" class="outline-3">
+<h3 id="orgheadline61"><span class="section-number-3">12.8</span> Handling the Noisy Input</h3>
+<div class="outline-text-3" id="text-12-8">
+<p>
+SAE implementation uses a denoising layer (Denoising AE, Vincent 08)
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/noise-new.png" alt="noise-new.png" />
+</p>
+</div>
+
+<div class="larger">
+<div class="alignright">
+<p>
+→ <b>Benefit from existing DL methods immediately</b>
+</p>
+
+<p>
+→ <b>Improved speed, robustness, accuracy</b>
+</p>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline63" class="outline-2">
+<h2 id="orgheadline63"><span class="section-number-2">13</span> Why bother the off-the-shelf planner? Shouldn't the blind search do?</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+<b>Domain-independent lowerbounds work, <i>SURPRISINGLY!</i></b>
+</p>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<ul class="org-ul">
+<li><p>
+This is <b>NOT</b> a trivial finding!
+</p>
+
+<p>
+lower-bounds are&#x2026;
+</p>
+
+<ul class="org-ul">
+<li>taylored for <b>man-made</b> domains</li>
+
+<li>assumes the domain has a <b>structure</b></li>
+</ul>
+<p>
+Blind search even sometimes outperform sophisticated methods on man-made instances (Edelkamp 12)
+</p></li>
+
+<li>lb works → <b>more difficult problems can be solved (future work)</b></li>
+</ul>
+
+</div>
+<div class="span6">
+<div class="smaller">
+<p>
+
+</p>
+
+<p>
+　
+</p>
+
+<p>
+Number of states expanded, mean(stdev.)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-center" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">domain</th>
+<th scope="col" class="org-center">N</th>
+<th scope="col" class="org-left">Dijkstra</th>
+<th scope="col" class="org-left">A*+PDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MNIST</td>
+<td class="org-center">13</td>
+<td class="org-left">210k(50k)</td>
+<td class="org-left"><b>97k</b> (53k)</td>
+</tr>
+
+<tr>
+<td class="org-left">Mandrill</td>
+<td class="org-center">12</td>
+<td class="org-left">176k(13k)</td>
+<td class="org-left"><b>112k</b> (57k)</td>
+</tr>
+
+<tr>
+<td class="org-left">Spider</td>
+<td class="org-center">13</td>
+<td class="org-left">275k(65k)</td>
+<td class="org-left"><b>58k</b> (30k)</td>
+</tr>
+
+<tr>
+<td class="org-left">Hanoi</td>
+<td class="org-center">30</td>
+<td class="org-left">20.7(29.7)</td>
+<td class="org-left"><b>12.6</b> (22.0)</td>
+</tr>
+
+<tr>
+<td class="org-left">LightsOut</td>
+<td class="org-center">16</td>
+<td class="org-left">433(610.4)</td>
+<td class="org-left"><b>130</b> (164)</td>
+</tr>
+
+<tr>
+<td class="org-left">Twisted</td>
+<td class="org-center">16</td>
+<td class="org-left">398(683.1)</td>
+<td class="org-left"><b>29.3</b> (62.4)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+N : number of instances.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline64" class="outline-2">
+<h2 id="orgheadline64"><span class="section-number-2">14</span> Why Gumbel-Softmax is necessary?</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>Alternative 1: Use a normal NN and <b>round</b> the encoder output?
+<ul class="org-ul">
+<li>✘ The <b>decoder</b> is not trained with 0/1 value, cannot obtain the meaningful output</li>
+</ul></li>
+<li>Alternative 2: Include the <b>round</b> operation in a NN?
+<ul class="org-ul">
+<li>✘ Rounding is <b>non-differentiable</b> / <b>Backpropagation impossible</b></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline65" class="outline-2">
+<h2 id="orgheadline65"><span class="section-number-2">15</span> State Autoencoder Conclusion</h2>
+<div class="outline-text-2" id="text-15">
+<dl class="org-dl">
+<dt>SAE can learn from small examples</dt><dd>20k training images → learn to map 360k unseen images</dd>
+
+<dt>SAE-based propositions are sound</dt><dd>Given the oracular AMA<sub>1</sub>, planners can reason over the propositions</dd>
+
+<dt>Latplan maintains the theoretical guarantee in the search algorithm</dt><dd>Given the complete state space graph,
+
+<ul class="org-ul">
+<li>Optimising algorithm (A*) returns an optimal solution</li>
+
+<li>Completeness is guaranteed</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline66" class="outline-2">
+<h2 id="orgheadline66"><span class="section-number-2">16</span> <b>*</b> ☕ Break ☕ <b>*</b></h2>
+<div class="outline-text-2" id="text-16">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+<b><i>☕ Break ☕</i></b>
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline67" class="outline-2">
+<h2 id="orgheadline67"><span class="section-number-2">17</span> Overview</h2>
+<div class="outline-text-2" id="text-17">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b><i>AMA<sub>2</sub> Overview</i></b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline68" class="outline-2">
+<h2 id="orgheadline68"><span class="section-number-2">18</span> SAE Feasible! Now what?</h2>
+<div class="outline-text-2" id="text-18">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<p>
+<b>AMA<sub>1</sub> is impractical</b>, cannot obtain <b>entire data</b> in the real world
+</p>
+
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+<b>AMA should</b> 
+</p>
+
+<p>
+<b>learn / generalize</b>
+</p>
+
+<p>
+<b>from small examples</b>
+</p></li>
+</ul>
+</div>
+
+</div>
+<div class="span6">
+
+<div class="figure">
+<p><img src="img/overview/ama1.png" alt="ama1.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="larger">
+<div class="alignright">
+<ul class="org-ul">
+<li>→ <b>AMA<sub>2</sub></b>, a novel neural architecture</li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline73" class="outline-2">
+<h2 id="orgheadline73"><span class="section-number-2">19</span> The Task of AMA<sub>2</sub> : The <b><i>Real</i></b> AMA method</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+<b>Input:</b> Propositional transitions $\{ (s,t) \ldots \}$
+</p>
+
+<div class="alignright">
+<p>
+($Encod$'ed from Training Input)
+</p>
+
+</div>
+
+<ul class="org-ul">
+<li><p>
+<b>Action Symbol Grounding</b>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp">(<span style="color: #483d8b;">:action</span> slide-up-tile7-at-x0-y1 ...
+</pre>
+</div></li>
+<li><p>
+<b>Action Preconditon Learning</b>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span style="color: #483d8b;">:precondition</span> (and (empty x0 y0) ...)
+</pre>
+</div></li>
+<li><p>
+<b>Action Effect Learning</b>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp"><span style="color: #483d8b;">:effects</span>      (and (empty x0 y1) (not ...)))
+</pre>
+</div></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline69" class="outline-3">
+<h3 id="orgheadline69"><span class="section-number-3">19.1</span> Why <b><i>action symbols</i></b> are necessary?</h3>
+<div class="outline-text-3" id="text-19-1">
+<p>
+Planners typically perform a <b>forward search</b> <b>(Dijkstra, $A^＊$)</b>
+</p>
+
+<p>
+Without Action Symbols, <b>successor generation</b> becomes challenging
+</p>
+
+<ul class="org-ul">
+<li><p>
+SAE with $|z|=36 \text{bit}$
+</p>
+
+<p>
+→ Generate <b>$2^{36}$potential successors</b>, then filter the invalid
+</p></li>
+
+<li><b><i>With action symbols</i>, (e.g. up, down, left, right)</b></li>
+
+<li>→ We can <b>enumerate the candidates in <i>constant time</i></b>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline70" class="outline-3">
+<h3 id="orgheadline70"><span class="section-number-3">19.2</span> Challenge: Training Input lacks <b>action symbols</b></h3>
+<div class="outline-text-3" id="text-19-2">
+<p>
+Should identify <b>the number of schemas</b> from <b>what is un/affected</b>
+</p>
+
+
+<div class="figure">
+<p><img src="img/ama/action-symbol.png" alt="action-symbol.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71"><span class="section-number-3">19.3</span> Challenge: Precondition/Effect learning is not trivial</h3>
+<div class="outline-text-3" id="text-19-3">
+<div class="xlarge">
+<p>
+Case 1: Linear Space
+</p>
+
+</div>
+
+<ul class="org-ul">
+<li><b>We do not need an action label</b>; it is linear anyways</li>
+<li>Then, AMA ≡ <b>prediction task</b> ($\approx$scene prediction in video)
+<ul class="org-ul">
+<li>We can train a neural network $a(s) = t\;$by minimizing $|t-a(s)|$</li>
+<li>Most DL literature follows this path</li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="img/ama/linear.png" alt="linear.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline72" class="outline-3">
+<h3 id="orgheadline72"><span class="section-number-3">19.4</span> Challenge: Precondition/Effect learning is not trivial</h3>
+<div class="outline-text-3" id="text-19-4">
+<div class="xlarge">
+<p>
+Case 2: Graphs
+</p>
+
+</div>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span7">
+<div class="org-center">
+<ul class="org-ul">
+<li><b>Multiple action labels</b></li>
+<li><p>
+<b><i>Varying</i> number of successors</b>
+</p>
+
+<p>
+<b><i>for each state</i></b>
+</p></li>
+
+<li><b>Cannot train $a(s) = t\;$for each $a$</b>
+  because <b>we don't know which $(s,t)$belongs to which $a$.</b></li>
+</ul>
+</div>
+
+</div>
+<div class="span5">
+
+<div class="figure">
+<p><img src="img/ama/non-linear.png" alt="non-linear.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="alignright">
+<div class="larger">
+<ul class="org-ul">
+<li><b>Correct Question</b>: <b>What</b> is the right function to learn?</li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline78" class="outline-2">
+<h2 id="orgheadline78"><span class="section-number-2">20</span> AMA<sub>2</sub> Overview</h2>
+<div class="outline-text-2" id="text-20">
+
+<div class="figure">
+<p><img src="img/ama/overview0.png" alt="overview0.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline74" class="outline-3">
+<h3 id="orgheadline74"><span class="section-number-3">20.1</span> AMA<sub>2</sub> Overview</h3>
+<div class="outline-text-3" id="text-20-1">
+
+<div class="figure">
+<p><img src="img/ama/overview1.png" alt="overview1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline75" class="outline-3">
+<h3 id="orgheadline75"><span class="section-number-3">20.2</span> AMA<sub>2</sub> Overview</h3>
+<div class="outline-text-3" id="text-20-2">
+
+<div class="figure">
+<p><img src="img/ama/overview1-1.png" alt="overview1-1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline76" class="outline-3">
+<h3 id="orgheadline76"><span class="section-number-3">20.3</span> AMA<sub>2</sub> Overview</h3>
+<div class="outline-text-3" id="text-20-3">
+
+<div class="figure">
+<p><img src="img/ama/overview2.png" alt="overview2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline77" class="outline-3">
+<h3 id="orgheadline77"><span class="section-number-3">20.4</span> AMA<sub>2</sub> Overview</h3>
+<div class="outline-text-3" id="text-20-4">
+
+<div class="figure">
+<p><img src="img/ama/overview3.png" alt="overview3.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline79" class="outline-2">
+<h2 id="orgheadline79"><span class="section-number-2">21</span> Overview</h2>
+<div class="outline-text-2" id="text-21">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b><i>Action AutoEncoder (AAE)</i></b>
+</p>
+
+<p>
+<b>Action Discriminator (AD)</b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline84" class="outline-2">
+<h2 id="orgheadline84"><span class="section-number-2">22</span> Action AutoEncoder</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+<b>What</b> is the right function to learn?
+</p>
+
+<div class="org-center">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<ul class="org-ul">
+<li><p>
+$a(s) = t$?
+</p>
+
+<p>
+We cannot train this
+</p></li>
+</ul>
+
+</div>
+<div class="span6">
+<ul class="org-ul">
+<li><p>
+$a$is a <b>variable!</b>
+</p>
+
+<p>
+$apply(a,s) = t$
+</p></li>
+</ul>
+
+</div>
+
+</div>
+<div class="row-fluid">
+<div class="span12">
+<ul class="org-ul">
+<li><p>
+Transition is a mapping
+</p>
+
+<p>
+<b>action</b> $a &rarr; $ <b>successor</b> $t$
+</p>
+
+<p>
+<b><i>conditioned by</i></b>
+</p>
+
+<p>
+<b>the current state $s$</b>
+</p></li>
+
+<li><div class="alignright">
+<p>
+<b>The right function to learn!</b>
+</p>
+
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline80" class="outline-3">
+<h3 id="orgheadline80"><span class="section-number-3">22.1</span> Implementing $(a \rightarrow t) | s$</h3>
+<div class="outline-text-3" id="text-22-1">
+
+<div class="figure">
+<p><img src="img/aae/aae-0.png" alt="aae-0.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline81" class="outline-3">
+<h3 id="orgheadline81"><span class="section-number-3">22.2</span> Implementing $(a \rightarrow t) | s$</h3>
+<div class="outline-text-3" id="text-22-2">
+
+<div class="figure">
+<p><img src="img/aae/aae-1.png" alt="aae-1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline82" class="outline-3">
+<h3 id="orgheadline82"><span class="section-number-3">22.3</span> Implementing $(a \rightarrow t) | s$</h3>
+<div class="outline-text-3" id="text-22-3">
+
+<div class="figure">
+<p><img src="img/aae/aae-2.png" alt="aae-2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline83" class="outline-3">
+<h3 id="orgheadline83"><span class="section-number-3">22.4</span> Implementing $(a \rightarrow t) | s$</h3>
+<div class="outline-text-3" id="text-22-4">
+
+<div class="figure">
+<p><img src="img/aae/aae-3.png" alt="aae-3.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline85" class="outline-2">
+<h2 id="orgheadline85"><span class="section-number-2">23</span> Overview</h2>
+<div class="outline-text-2" id="text-23">
+<div class="org-center">
+<div class="xlarge">
+<p>
+<b>Backgrounds</b>
+</p>
+
+<p>
+<b>Latplan Architecture</b>
+</p>
+
+<p>
+<b>State AutoEncoder (SAE)</b>
+</p>
+
+</div>
+
+<p>
+break
+</p>
+
+<div class="xlarge">
+<p>
+<b>AMA<sub>2</sub> Overview</b>
+</p>
+
+<p>
+<b>Action AutoEncoder (AAE)</b>
+</p>
+
+<p>
+<b><i>Action Discriminator (AD)</i></b>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline89" class="outline-2">
+<h2 id="orgheadline89"><span class="section-number-2">24</span> Action Discriminator learns preconditions</h2>
+<div class="outline-text-2" id="text-24">
+
+<div class="figure">
+<p><img src="img/ama/overview2.png" alt="overview2.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline86" class="outline-3">
+<h3 id="orgheadline86"><span class="section-number-3">24.1</span> Action Discriminator learns Preconditions = Binary Classifer</h3>
+<div class="outline-text-3" id="text-24-1">
+<p>
+<b>Binary classifier</b> telling which transitions are valid
+</p>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+
+<div class="figure">
+<p><img src="img/aae/ad.png" alt="ad.png" />
+</p>
+</div>
+
+</div>
+<div class="span6">
+<ul class="org-ul">
+<li>Trained by a <b>positive</b> and <b>negative</b> dataset</li>
+</ul>
+
+<div class="org-center">
+<ul class="org-ul">
+<li>We have <b>data for valid transitions (observed data).</b></li>
+<li><b>Where are the negative (<i>invalid</i>) datasets?</b></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline87" class="outline-3">
+<h3 id="orgheadline87"><span class="section-number-3">24.2</span> Negative dataset</h3>
+<div class="outline-text-3" id="text-24-2">
+<ul class="org-ul">
+<li><b><i>Invalid transitions</i></b>: <b>All transitions that are not valid.</b>
+<ul class="org-ul">
+<li>We lack the definition; <b>Cannot be generated.</b></li>
+</ul></li>
+<li>Can we <b>collect</b> the invalid data?
+<ul class="org-ul">
+<li><p>
+<b>Teleportation violates the laws of physics</b>. (at least in a macro scale)
+</p>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span1">
+<p>
+
+</p>
+
+</div>
+<div class="span8">
+
+<div class="figure">
+<p><img src="img/aae/teleportation.png" alt="teleportation.png" />
+</p>
+</div>
+
+</div>
+<div class="span1">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+</div></li>
+</ul></li>
+</ul>
+
+<div class="larger">
+<ul class="org-ul">
+<li><b>Invalid transitions <i>never happen</i> →  
+an autonomous agent <i>cannot possibly collect data</i> in the real world.</b></li>
+<li>Collecting a negative dataset is <b><i>fundamentally impossible</i></b></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline88" class="outline-3">
+<h3 id="orgheadline88"><span class="section-number-3">24.3</span> Solution: PU-Learning (Elkan &amp; Noto, KDD 08')</h3>
+<div class="outline-text-3" id="text-24-3">
+<p>
+Training a <b>positive &amp; negative classifier</b> from the <b>positive &amp; <i>unlabelled</i> datasets</b>.
+</p>
+
+<ul class="org-ul">
+<li>Positive: Training Input. <b>Observed data are valid, guaranteed</b></li>
+<li>Unlabelled: <b>Successor candidates generated by the AAE</b>
+<ul class="org-ul">
+<li>Some are valid, some are invalid</li>
+</ul></li>
+</ul>
+
+<div class="alignright">
+<ul class="org-ul">
+<li><p>
+Now we can train the AD!
+</p>
+
+<p>
+(SD explanation: skipped)
+</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline90" class="outline-2">
+<h2 id="orgheadline90"><span class="section-number-2">25</span> Planning using AMA<sub>2</sub></h2>
+<div class="outline-text-2" id="text-25">
+<p>
+AAE <b>enumerates</b> the canditates; AD/SD <b>filters</b> the invalid.
+</p>
+
+\begin{align*}
+  Succ(s) &amp;= \{t = apply(a,s) \; | \; a \in \{0\ldots 127\},\\
+          &amp; \qquad \land AD(s,t) \geq 0.5 \\
+          &amp; \qquad \land SD(t) \geq 0.5 \}
+\end{align*}
+<p>
+We have <b>action symbols and propositional states!</b>
+</p>
+
+<p>
+Now we can run $A^*$with <b>goal-count</b> heuristics
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline92" class="outline-2">
+<h2 id="orgheadline92"><span class="section-number-2">26</span> AMA<sub>2</sub> Experiments 1</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+Is it feasibile to do planning with AAE and AD?
+</p>
+
+<ul class="org-ul">
+<li><b>100 instances</b> for each domain
+<ul class="org-ul">
+<li>self-avoiding random walks from the goal state</li>
+<li>(benchmark A) 7-step</li>
+<li>(benchmark B) 14-step</li>
+</ul></li>
+<li>180 sec. time limit</li>
+<li>Domain-specific plan validators.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline91" class="outline-3">
+<h3 id="orgheadline91"><span class="section-number-3">26.1</span> Results</h3>
+<div class="outline-text-3" id="text-26-1">
+<p>
+Noise are applied to the planning inputs (init/goal images)
+</p>
+
+<p>
+G: Gaussian noise, s/p: salt/pepper noise
+</p>
+
+<ul class="org-ul">
+<li><b>Easy instances: Majority of instances are solved</b></li>
+<li><b>Harder instances: Still many instances are solved</b></li>
+</ul>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">/</th>
+<th scope="col" class="org-right">&lt;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&gt;</th>
+<th scope="col" class="org-right">&lt;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&gt;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">step</th>
+<th scope="col" class="org-right">7</th>
+<th scope="col" class="org-right">7</th>
+<th scope="col" class="org-right">7</th>
+<th scope="col" class="org-right">14</th>
+<th scope="col" class="org-right">14</th>
+<th scope="col" class="org-right">14</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">noise</th>
+<th scope="col" class="org-right">std</th>
+<th scope="col" class="org-right">G</th>
+<th scope="col" class="org-right">s/p</th>
+<th scope="col" class="org-right">std</th>
+<th scope="col" class="org-right">G</th>
+<th scope="col" class="org-right">s/p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MNIST</td>
+<td class="org-right">72</td>
+<td class="org-right">64</td>
+<td class="org-right">64</td>
+<td class="org-right">6</td>
+<td class="org-right">4</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Mandrill</td>
+<td class="org-right">100</td>
+<td class="org-right">100</td>
+<td class="org-right">100</td>
+<td class="org-right">9</td>
+<td class="org-right">14</td>
+<td class="org-right">14</td>
+</tr>
+
+<tr>
+<td class="org-left">Spider</td>
+<td class="org-right">94</td>
+<td class="org-right">99</td>
+<td class="org-right">98</td>
+<td class="org-right">29</td>
+<td class="org-right">36</td>
+<td class="org-right">38</td>
+</tr>
+
+<tr>
+<td class="org-left">LightsOut</td>
+<td class="org-right">100</td>
+<td class="org-right">99</td>
+<td class="org-right">100</td>
+<td class="org-right">59</td>
+<td class="org-right">60</td>
+<td class="org-right">51</td>
+</tr>
+
+<tr>
+<td class="org-left">Twisted LO</td>
+<td class="org-right">96</td>
+<td class="org-right">65</td>
+<td class="org-right">98</td>
+<td class="org-right">75</td>
+<td class="org-right">68</td>
+<td class="org-right">72</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline93" class="outline-2">
+<h2 id="orgheadline93"><span class="section-number-2">27</span> AMA<sub>2</sub> Experiments 2</h2>
+<div class="outline-text-2" id="text-27">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<p>
+How accurate are Action Discriminators?
+</p>
+
+<p>
+Measure the type-1 / type-2 error in %
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">type1</th>
+<th scope="col" class="org-right">type2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">MNIST</td>
+<td class="org-right">1.55</td>
+<td class="org-right">6.15</td>
+</tr>
+
+<tr>
+<td class="org-left">Mandrill</td>
+<td class="org-right">1.10</td>
+<td class="org-right">2.93</td>
+</tr>
+
+<tr>
+<td class="org-left">Spider</td>
+<td class="org-right">1.22</td>
+<td class="org-right">4.97</td>
+</tr>
+
+<tr>
+<td class="org-left">L. Out</td>
+<td class="org-right">0.03</td>
+<td class="org-right">1.64</td>
+</tr>
+
+<tr>
+<td class="org-left">Twisted</td>
+<td class="org-right">0.02</td>
+<td class="org-right">1.82</td>
+</tr>
+
+<tr>
+<td class="org-left">Hanoi</td>
+<td class="org-right">0.25</td>
+<td class="org-right">3.79</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="span6">
+<div class="smaller">
+<dl class="org-dl">
+<dt>(AD type-1)</dt><dd>Generate all valid transitions and count the number of misclassification.</dd>
+<dt>(AD type-2)</dt><dd>For 1000 randomly selected valid states, generate all successors,
+prune by SD,
+remove the valid transitions (w/ validator), then count the transitions misclassified as valid.</dd>
+</dl>
+
+</div>
+<div class="larger">
+<ul class="org-ul">
+<li><b>Reasonably accurate.</b></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline98" class="outline-2">
+<h2 id="orgheadline98"><span class="section-number-2">28</span> Conclusion</h2>
+<div class="outline-text-2" id="text-28">
+<ul class="org-ul">
+<li><b>Latplan:</b> <b>The <i>first system</i> in history</b> which completely automatically
+generates a classical, symbolic planning model from scratch</li>
+
+<li><p>
+<b>State AutoEncoder(SAE)</b> : <b><i>real-world states</i> ↔ <i>propositional states</i></b>
+</p>
+
+<p>
+<b>Action AutoEncoder(AAE)</b> : <b><i>transitions</i> ↔ <i>action labels</i>, <i>effects</i></b>
+</p>
+
+<p>
+<b>Action Discriminator(AD)</b> : <b><i>transition</i> → <i>bool</i></b> with <b>PU-Learning</b>
+</p>
+
+<div class="org-center">
+<p>
+<b>Two of the major grounding problems were solved!</b>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Types of symbols</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Propositional symbols</td>
+<td class="org-left"><b>Solved!</b></td>
+</tr>
+
+<tr>
+<td class="org-left">Action symbols</td>
+<td class="org-left"><b>Solved!</b></td>
+</tr>
+
+<tr>
+<td class="org-left">Object symbols</td>
+<td class="org-left">Computer Vision techniques?</td>
+</tr>
+
+<tr>
+<td class="org-left">Predicate symbols</td>
+<td class="org-left">???</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Future work: improved accuracy, runtime efficiency.
+</p>
+
+<p>
+<b>This opens many avenue for future research.</b>
+</p>
+</div></li>
+</ul>
+</div>
+
+<div id="outline-container-orgheadline94" class="outline-3">
+<h3 id="orgheadline94"><span class="section-number-3">28.1</span> Future Work (Input format)</h3>
+<div class="outline-text-3" id="text-28-1">
+<p>
+LatPlan is an <b>architecture</b> : Any system with SAE is an implementation
+</p>
+
+<p>
+<b>Different SAE → reason about different types of raw data</b>
+</p>
+
+<ul class="org-ul">
+<li>Autoencoders for <b>text</b>, <b>audio</b> [Li 2015, Deng 2010]</li>
+<li>Example:
+<ul class="org-ul">
+<li>Transition rule "<b>This is an apple, this is a pen → oh, ApplePen!</b>"</li>
+</ul></li>
+
+<li><p>
+When this happens, <b><i>Latplan</i></b> brings AI to a new level e.g.
+</p>
+
+<p>
+<b>1000 steps of natural language reasoning with <i>logic</i>, not by reflex</b>
+</p>
+
+<ul class="org-ul">
+<li>Fundamentally impossible for short-sighted / greedy agents</li>
+</ul></li>
+</ul>
+
+<div class="note">
+<p>
+"A hierarchical neural autoencoder for paragraphs and documents." (2015)
+</p>
+
+<p>
+"Binary coding of speech spectrograms using a deep auto-encoder." (2010)
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline95" class="outline-3">
+<h3 id="orgheadline95"><span class="section-number-3">28.2</span> Future Work (Extended planning formalism)</h3>
+<div class="outline-text-3" id="text-28-2">
+<ul class="org-ul">
+<li>Latplan assumes nothing about the environment machinery (grids, movable tiles&#x2026;)</li>
+<li>Latplan assumes <b>fully-observable</b>, <b>deterministic</b> domains</li>
+<li>Next step: <b>Extending Latplan to MDP, POMDP</b>
+<ul class="org-ul">
+<li>Gumbel-Softmax layer → just a Softmax layer? (probability)</li>
+<li>$AO^*$, $LAO^*$algorithms for <b>optimal planning under uncertainty</b></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline96" class="outline-3">
+<h3 id="orgheadline96"><span class="section-number-3">28.3</span> Future Work (Propositional → First-order)</h3>
+<div class="outline-text-3" id="text-28-3">
+<p>
+SAE can generate propositional symbols (state $s = \{q,r\ldots\}$)
+</p>
+
+<ul class="org-ul">
+<li>1st-order logic (predicate $p(a,b)$)</li>
+
+<li>We need <b>object recognition from images</b> (parameters $a,b$)</li>
+
+<li>SAE with networks for object recognition (e.g. R-CNN) should achieve this</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline97" class="outline-3">
+<h3 id="orgheadline97"><span class="section-number-3">28.4</span> Future Work (Knowledge extraction)</h3>
+<div class="outline-text-3" id="text-28-4">
+<p>
+AMA<sub>2</sub> (AAE/AD) is a neural network, thus precondition/effects are in a blackbox
+</p>
+
+<p>
+Hinders deriving heuristic functions
+</p>
+
+<p>
+Knowledge extraction by Konidaris et al.('14,'15), δ-ILP (Deepmind) ?
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline111" class="outline-2">
+<h2 id="orgheadline111"><span class="section-number-2">29</span> Appendix</h2>
+<div class="outline-text-2" id="text-29">
+<p>
+Using the Remaining Time (Discussion)
+</p>
+</div>
+
+<div id="outline-container-orgheadline99" class="outline-3">
+<h3 id="orgheadline99"><span class="section-number-3">29.1</span> Konidaris et. al (2014, 2015):</h3>
+<div class="outline-text-3" id="text-29-1">
+<p>
+Structured input (e.g. <b>light switch</b>, <b>x/y-distance</b>) ↔ unstructured image
+</p>
+
+<p>
+Action Symbols (<b>move, interact</b>)
+</p>
+
+<p>
+Just converting Semi-MDP <i>model</i> to a PDDL <i>model</i>.
+</p>
+
+<p>
+Could be used for extracting PDDL from AAE/AD
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline100" class="outline-3">
+<h3 id="orgheadline100"><span class="section-number-3">29.2</span> NNs for solving combinatorial tasks:</h3>
+<div class="outline-text-3" id="text-29-2">
+<p>
+TSP (Hopfield and Tank 1985)
+</p>
+
+<p>
+Neurosolver for ToH (Bieszczad and Kuchar 2015)
+</p>
+
+<p>
+<b>The input/output are symbolic.</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline101" class="outline-3">
+<h3 id="orgheadline101"><span class="section-number-3">29.3</span> Other Work Combining Symbolic Search and NNs</h3>
+<div class="outline-text-3" id="text-29-3">
+<p>
+Embedded NNs <b>inside</b> a search to provide the <b>search control knowledge</b>
+</p>
+
+<p>
+(i.e. node evaluation function)
+</p>
+
+<p>
+Sliding-tile puzzle and Rubik’s Cube (Arfaee et al. 2011)
+</p>
+
+<p>
+Classical planning (Satzger and Kramer 2013)
+</p>
+
+<p>
+The game of Go (AlphaGo, Silver et al. 2016)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline102" class="outline-3">
+<h3 id="orgheadline102"><span class="section-number-3">29.4</span> Deep Reinforcement Learning (DRL) (Mnih et al. 2015, DQN)</h3>
+<div class="outline-text-3" id="text-29-4">
+<p>
+DQN assumes <b>predetermined action symbols</b> (↑↓←→+ buttons).
+</p>
+
+<p>
+DQN <b>relies on simulators</b>. ↔ Latplan <b>reverse-engineers a simulator</b>.
+</p>
+
+<p>
+<b>DQN does not work</b> when it does not know <b>what action is even possible!</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline103" class="outline-3">
+<h3 id="orgheadline103"><span class="section-number-3">29.5</span> Other Interesting Systems</h3>
+<div class="outline-text-3" id="text-29-5">
+<p>
+SCAN system (deepmind)
+</p>
+
+<ul class="org-ul">
+<li><p>
+Maps <b>continuous</b> latent vector and <b>human-provided</b> symbolic vector
+</p>
+
+<div class="smaller">
+<ul class="org-ul">
+<li>This does not make sense. They are missing points</li>
+<li>Because they don't know what symbols are for</li>
+<li>They are for efficient, automated reasoning!</li>
+<li>Floats are not efficient, humans shouldn't be involved</li>
+</ul>
+
+</div></li>
+</ul>
+
+<p>
+δ-ILP (Inductive Logic Programming)
+</p>
+
+<ul class="org-ul">
+<li>ILP robust to noise
+<ul class="org-ul">
+<li>Extracting rules from AAE/AD to form a PDDL?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline104" class="outline-3">
+<h3 id="orgheadline104"><span class="section-number-3">29.6</span> Why not individual pixels? Why DL?</h3>
+<div class="outline-text-3" id="text-29-6">
+<p>
+<b>Systems based on individual pixels lack generalization</b>
+</p>
+
+<ul class="org-ul">
+<li><p>
+Noise / variations can make the data entirely different
+</p>
+
+
+<div class="figure">
+<p><img src="img/results/noise.png" alt="noise.png" />
+</p>
+</div></li>
+
+<li>must acquire the <b>generalized features</b></li>
+
+<li>= a nonlinear function that recognize the entanglements between multiple pixels</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline105" class="outline-3">
+<h3 id="orgheadline105"><span class="section-number-3">29.7</span> Learning vs Planning</h3>
+<div class="outline-text-3" id="text-29-7">
+<p>
+Main differences: Purposes and the abstraction layer
+</p>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<p>
+<b>Machine Learning, Neural Networks</b> 
+</p>
+
+<p>
+for <b>Recognition, Reflex</b>
+</p>
+<ul class="org-ul">
+<li><p>
+<b>Subsymbolic Input</b> (continuous)
+</p>
+
+<p>
+Images, Audio, unstructured text: 
+</p></li>
+<li><p>
+<b>Soft Intelligence</b>:
+</p>
+
+<p>
+　 <b><i>Reflex Agent</i>, <i>Immediate</i> actions</b>
+</p>
+<div class="smaller">
+<p>
+<b>Pavlov's dog</b> : bell → drool
+</p>
+
+<p>
+<b>Autonomous Driving</b> : Pedestrian → Stop.
+</p>
+
+<p>
+<b>Machine Translation</b> : Sentence → Sentence
+</p>
+
+<p>
+<b>Eval. Function for Go</b> : board → win-rate
+</p>
+
+</div>
+<div class="larger">
+<p>
+☺ Efficient 1-to-1 mapping
+</p>
+
+<p>
+☹ Simple tasks
+</p>
+
+</div></li>
+</ul>
+
+</div>
+<div class="span6">
+<p>
+<b>Deliberation, Search</b>
+</p>
+
+<p>
+for <b>Planning, Game, Theorem Proving</b>
+</p>
+<ul class="org-ul">
+<li><p>
+<b>Symbolic Input/Output</b>
+</p>
+
+<p>
+Logic, objects, induction rules
+</p></li>
+<li><p>
+<b>Hard Intelligence by Logic:</b>
+</p>
+
+<p>
+　 <b><i>Multi-step</i> strategies</b>
+</p>
+
+<div class="smaller">
+<p>
+<b>Rescue Robot</b> : actions → help the surviver
+</p>
+
+<p>
+<b>Theorem Proving</b> : theorems → QED
+</p>
+
+<p>
+<b>Compiler</b> : x86 instructions
+</p>
+
+<p>
+<b>Game of Go</b> : stones → Win
+</p>
+
+</div>
+<div class="larger">
+<p>
+☺ Ordering constraint + complex tasks
+</p>
+
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<ul class="org-ul">
+<li>AlphaGo = Subsymbolic (DLNN eval. function) + Symbolic (MCTS)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline106" class="outline-3">
+<h3 id="orgheadline106"><span class="section-number-3">29.8</span> Human-Competitive Systems</h3>
+<div class="outline-text-3" id="text-29-8">
+<p>
+AlphaGo = Subsymbolic (NN eval. func) + Symbolic (MCTS)
+</p>
+<ul class="org-ul">
+<li>However, <b>domain-specific</b> &#x2013; specialized in Go, "Grids" / "Stones" are known</li>
+<li><b>Huge expert trace DB</b> &#x2014; Not applicable when data are scarse (e.g. <b>space exploration</b>)</li>
+<li><p>
+<b><i>Is supervised learning necessary for human?</i></b>
+</p>
+
+<p>
+<b>True intelligence should search / collect data by itself</b>
+</p></li>
+</ul>
+
+<p>
+DQN = Subsymbolic (DLNN) + Reinforcement Learning (DLNN)
+</p>
+
+<p>
+Domain-independent Atari Game solver (Invader, Packman…), however:
+</p>
+<ul class="org-ul">
+<li>RL Acting: Greedily follow the learned policy → <b>no deliberation!</b></li>
+<li>You can survive most Atari games <b>by reflex</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline107" class="outline-3">
+<h3 id="orgheadline107"><span class="section-number-3">29.9</span> Latplan Advantages</h3>
+<div class="outline-text-3" id="text-29-9">
+<div class="xlarge">
+<p>
+<b><i>Perception</i></b> based on DLNN
+</p>
+
+</div>
+
+<p>
+&#x2014; Robust systems augmented by the latest DL tech
+</p>
+
+<div class="xlarge">
+<p>
+<b><i>Decision Making</i></b> based on Classical Planning
+</p>
+
+</div>
+
+<p>
+&#x2014; <b>Better Theoretical Guarantee than Reinforcement Learning</b>
+</p>
+
+<div class="org-center">
+<p>
+<b>Completeness</b> (Finds solution whenever possible), <b><i>Solution Optimality</i></b>
+</p>
+</div>
+
+<p>
+&#x2014; <b>Decision Making Independent from Learning</b>
+</p>
+
+<div class="org-center">
+<p>
+<b><i>Unsupervised</i></b> (No data required), <b>Explainable</b> (Search by logic)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline108" class="outline-3">
+<h3 id="orgheadline108"><span class="section-number-3">29.10</span> When Latplan returns a <i>wrong</i> solution?</h3>
+<div class="outline-text-3" id="text-29-10">
+<p>
+<b>Machine learning may contain errors</b> (convergence <i>only on</i> $t\rightarrow \infty$, not on real time)
+</p>
+
+<ul class="org-ul">
+<li>Images → Fraud symbols/model/graph</li>
+
+<li><p>
+<b>Optimal path on a fraud graph</b> or <b>graph disconnected</b>
+</p>
+
+<p>
+A* completeness, soundness, optimality (admissible heuristics) 
+</p></li>
+
+<li>Fraud visualized plan (noisy) / no plan found</li>
+</ul>
+
+<div class="org-center">
+<div class="larger">
+<p>
+LatPlan may make <b><i>wrong observations</i></b> but no <b><i>wrong decisions</i></b>
+</p>
+
+</div>
+
+<p>
+BTW, "correctness" is defined by error prone observations by humans anyways &#x2026;
+</p>
+</div>
+
+<div class="alignright">
+<p>
+(completeness, optimality) → better reliablility than Reinforcement Learning
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline109" class="outline-3">
+<h3 id="orgheadline109"><span class="section-number-3">29.11</span> Reinforcement Learning</h3>
+<div class="outline-text-3" id="text-29-11">
+<p>
+Both <b>perception</b> and <b>decision making</b> depend on training
+</p>
+
+<ul class="org-ul">
+<li><b><i>When the learned policy is wrong</i></b>,
+
+<ul class="org-ul">
+<li><b>the solution could be suboptimal</b></li>
+
+<li><b><i>It could even fail to find solutions (incomplete agent)</i></b></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>
+&#x2026; AlphaGo was unprepared for Lee Sedol’s Move 78 because it
+didn’t think that a human would ever play it.
+</p>
+
+<div class="alignright">
+<p>
+Cade Metz. "In Two Moves, that Redifined the Future." <i>Wired</i>, 2016
+</p>
+
+</div>
+</blockquote>
+
+<div class="org-center">
+<div class="larger">
+<p>
+RL may make <b>wrong decisions</b>.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline110" class="outline-3">
+<h3 id="orgheadline110"><span class="section-number-3">29.12</span> Why symbols?</h3>
+<div class="outline-text-3" id="text-29-12">
+<p>
+Symbols are strong abstraction mechanisms becasue
+</p>
+
+<dl class="org-dl">
+<dt>Meanings do not matter</dt><dd><p>
+     No understanding necessary: Does a symbol $X$mean an apple or a car?
+</p>
+
+<p>
+Logical reasoning by mechanical application of rules
+</p>
+
+<ul class="org-ul">
+<li><p>
+Domain-independent planning : <b>mystery</b> vs <b>nomystery</b>
+</p>
+
+<p>
+Logistic domains where <b>symbol names are mangled</b> (truck → shark)
+</p></li>
+</ul></dd>
+
+<dt>Composable</dt><dd><p>
+     A latent vector is a conjunction (and)
+</p>
+
+<p>
+Heuristic functions use modus ponens to derive guidance
+</p></dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline112" class="outline-2">
+<h2 id="orgheadline112"><span class="section-number-2">30</span> This is the start of <b>neural-symbolic</b> AI!</h2>
+<div class="outline-text-2" id="text-30">
+
+<div class="figure">
+<p><img src="img/latplanlogo-in-sicp.png" alt="latplanlogo-in-sicp.png" />
+</p>
+</div>
+
+<p>
+(yeah I really like a catchy phrase)
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Masataro Asai</p>
+<p class="date">Created: 2018-01-27 土 11:34</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

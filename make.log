@@ -1,0 +1,24 @@
+make[1]: 警告: 副次 make で -jN を強制指定しました: jobserver モードを無効にします.
+make[1]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm' に入ります
+make -C img
+make -C css
+make -C scripts
+make[2]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm/img' に入ります
+make[2]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm/css' に入ります
+sass --update .
+make[2]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm/scripts' に入ります
+Q --batch  -f batch-byte-compile compile-org-html.el
+make[2]: Q: コマンドが見つかりませんでした
+Q --batch  -f batch-byte-compile compile-org-latex.el
+Makefile:5: ターゲット 'compile-org-html.elc' のレシピで失敗しました
+make[2]: [compile-org-html.elc] エラー 127 (無視されました)
+make[2]: Q: コマンドが見つかりませんでした
+Makefile:5: ターゲット 'compile-org-latex.elc' のレシピで失敗しました
+make[2]: [compile-org-latex.elc] エラー 127 (無視されました)
+make[2]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm/scripts' から出ます
+scripts/org-html.sh presen.org presen.org.html
+make[2]: 'all' に対して行うべき事はありません.
+make[2]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm/img' から出ます
+Loading /home/guicho/repos/presentations/2017-11-16-ibm/scripts/compile-org-html.el (source)...
+make[2]: ディレクトリ '/home/guicho/repos/presentations/2017-11-16-ibm/css' から出ます
+Org-mode version 8.3.6 (8.3.6-dist @ /home/guicho/repos/presentations/2017-11-16-ibm/org-mode/lisp/)
