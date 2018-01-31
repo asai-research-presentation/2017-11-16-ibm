@@ -184,7 +184,7 @@ Today, I talk about how to integrate DL and logic-based planning systems.
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 *Latplan Architecture*
 
@@ -206,7 +206,7 @@ break
 
 #+begin_center
 #+begin_xlarge
-*/Backgrounds/*
+*/Background/*
 
 *Latplan Architecture*
 
@@ -615,17 +615,17 @@ The system is given *2 types of input*:
 [[png:overview/2]]
 #+end_right
 
-They are *randomly sampled* transitions
+They are *randomly sampled image transitions*
 
-+ No *state descriptions* (unlike AlphaGo)
++ No *state descriptions* (unlike AlphaGo (Silver et al. '16))
 + No *expert traces* (unlike AlphaGo)
-+ No *rewards* (unlike DRL)
-+ No *access to the simulator* (unlike Atari)
++ No *rewards* (unlike DRL systems)
++ No *access to the simulator* (unlike DQN (Mnih et al. '15) for Atari)
   
   → cannot ask for more examples
 + 
   #+begin_larger
-  No */action symbols/* (unlike any)
+  No */action symbols/* (no system to our knowledge)
 
   　　(e.g. ↑↓←→AB in Atari, grids in Go)
 
@@ -653,7 +653,7 @@ They are *randomly sampled* transitions
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 */Latplan Architecture/*
 
@@ -727,7 +727,7 @@ Latplan: Latent-space Planner.
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 *Latplan Architecture*
 
@@ -1168,7 +1168,7 @@ N : number of instances.
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 *Latplan Architecture*
 
@@ -1190,7 +1190,7 @@ N : number of instances.
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 *Latplan Architecture*
 
@@ -1415,7 +1415,7 @@ Case 2: Graphs
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 *Latplan Architecture*
 
@@ -1489,7 +1489,7 @@ break
 
 #+begin_center
 #+begin_xlarge
-*Backgrounds*
+*Background*
 
 *Latplan Architecture*
 
